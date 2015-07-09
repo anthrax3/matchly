@@ -1,4 +1,4 @@
-var UserProfile = require('./UserModel.js');
+var UserProfile = require('./userModel.js');
 
 module.exports = {
 	getData: function(req, res) {
