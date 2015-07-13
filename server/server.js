@@ -9,8 +9,9 @@ app.use(express.static(__dirname + "./../"));
 app.use(bodyParser.json());
 app.post('/blog', userController.postUserProfile);
 app.post('/login', userController.login);
-app.post('/getBlogPosts', userController.getBlogPosts);
+app.get('/makeBlogPost', userController.getBlogPosts);
 app.post('/makeBlogPost', userController.makeBlogPost);
+app.post('/vote', userController.vote);
 // app.get('/favicon.ico',function(){return null;});
 
 app.listen(process.env.PORT || 3000);

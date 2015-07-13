@@ -7,19 +7,37 @@ var App = React.createClass({
 	getInitialState: function() {
 		return {pageCounter: 0,
 			name: null,
-			blogPosts: [["hello",1],["how are you?",3],["I am fine",2]]
-		}
+			blogPosts: [{votes: 0}, {votes:1}]
+		};
+	},
+
+	getBlogPosts: function() {
+		var self = this;
+		$.ajax({
+      method: 'GET',
+      dataType: 'json',
+      url: '/makeBlogPost',
+      success: function(data) {
+      	self.setState({blogPosts: data});
+				self.blogSorter();   		
+   		}
+    });
 	},
 
 	setName: function(name) {
 		this.setState({name: name});
 	},
 
-	blogSorter: function(array) {
-		array.sort(function(a,b) {
-			return a[1] -b[1];
-		});
-	},
+	blogSorter: function() {
+		if(this.state.blogPosts !== undefined) {
+			var array = this.state.blogPosts;
+			array.sort(function(a,b) {
+				return b.votes - a.votes;
+			});
+			this.setState({blogPosts: array});
+		}
+ 	},
+
 	pageTurner: function(page) {
 		this.setState({pageCounter: page});
 	},
@@ -27,23 +45,18 @@ var App = React.createClass({
 	registerNewUser: function(first) {
 		this.setState({name: first});
 	},
-	upVoter: function() {
-	//this needs to be an ajax request to update the database and rerender the whole sytem including sorting the order	
-	},
 
 	render: function() {
-		console.log(this.state.blogPosts, "blog post at render");
-
 		if(this.state.pageCounter === 0) {
 			return(
 				<div>
-	   		  		<LoginBox page={this.pageTurner} name={this.state.name} sort={this.blogSorter} blog={this.state.blogPosts} setName = {this.setName.bind(this)} />
+	   		  		<LoginBox page={this.pageTurner} name={this.state.name} sort={this.blogSorter} blog={this.state.blogPosts} setName={this.setName} getBlogPosts={this.getBlogPosts} />
 				</div>);
 		}
 		else if (this.state.pageCounter === 1) {
 			return (
 				<div>
-					<Blog post={this.state.blogPosts} name={this.state.name}/>
+					<Blog post={this.state.blogPosts} name={this.state.name} getBlogPosts={this.getBlogPosts} page={this.pageTurner} sorter={this.blogSorter} />
 				</div>
 			);
 		}

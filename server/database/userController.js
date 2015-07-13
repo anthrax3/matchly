@@ -1,8 +1,23 @@
 var UserProfile = require('./userModel.js');
 var BlogPost = require('./UserBlogPost.js');
 module.exports = {
-	getBlogPosts: function(req, res) {
-		UserProfile.find({}, function(err, data) {
+
+	vote: function(req, res) {
+    var vote = parseInt(req.body.vote);
+    var query = {'_id': req.body._id};
+    BlogPost.findOne(query, function(err, data) {
+      if(err) {
+        res.send(err);
+      }
+      data.votes = data.votes + vote;
+      data.save();
+      res.send("vote fires");
+    });
+
+  },
+
+  getBlogPosts: function(req, res) {
+		BlogPost.find({}, function(err, data) {
 			if(err) {
 				return res.send(err);
 			}
@@ -33,8 +48,7 @@ module.exports = {
 		});
 			var encript = 1;
 			password.forEach(function(i) {
-				console.log()
-				encript = encript*i*3;
+			encript = encript*i*3;
 			});
 			req.body.password = parseInt(encript/2/3/5*7*11*13/17/19/23/31*34*35*36*37);
 			if(req.body.password === parseInt(data.password)) {

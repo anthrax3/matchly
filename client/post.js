@@ -1,9 +1,21 @@
 React = require('react');
 
 var Post = React.createClass({
-	upVote: function() {
-		return 
-		//this needs to be an ajax request to update the database and rerender the whole system				
+	vote: function(number) {
+    var self=this;
+    var name = this.props.data.name;
+    var id = this.props.data._id;
+    var VoteObject = {_id: id, vote: number };
+		$.ajax({
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(VoteObject),
+      url: '/vote',
+      success: function(data) {
+        this.props.getBlogPosts();
+        this.props.sorter();
+      }.bind(this)       
+    });
 	},
 
 	render: function() {
@@ -11,16 +23,20 @@ var Post = React.createClass({
 			<div>
 				<div>
 					<div id='votes'>
-						<button id='upvote' onClick={this.upvote}>UP</button>
-						<button id='downvote'>DOWN</button>
+						<button id='upvote' onClick={this.vote.bind(this,1)} >UP</button>
+						<button id='downvote' onClick={this.vote.bind(this,-1)} >DOWN</button>
 					</div>
-					{this.props.data[0]}
+					<div>
+						{this.props.data.name}
+					</div>
+					<div>
+						{this.props.data.post}
+					</div>
 				</div>
 				<br></br>
 				<div>
-					{this.props.data[1]}
+					{this.props.data.votes}
 				</div>
-				
 			</div>
 		);
 	}

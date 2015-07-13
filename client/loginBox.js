@@ -15,13 +15,13 @@ var LoginBox = React.createClass({
             data: JSON.stringify(profileObject),
             url: '/login',
             success: function(data) {
-      		if(data==="check");
-      		console.log(data);
-			//this sorts the blogposts before rendering
-			self.props.sort(self.props.blog);
-      		self.props.setName()
-      		self.props.page(1);
-      		
+      			if(data==="check"){
+		      		self.props.getBlogPosts();
+					//this sorts the blogposts before rendering
+					self.props.sort(self.props.blog);
+		      		self.props.setName(userName);
+		      		self.props.page(1);
+      			}
       		}     	
         });
 
