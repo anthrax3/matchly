@@ -22,14 +22,14 @@ var Blog = React.createClass({
 		var postArray = this.props.post.map(function(blogPost) {
       return (
 				<div>
-					<Post data={blogPost} getBlogPosts={this.props.getBlogPosts} sorter={this.props.sorter} />
+					<Post data={blogPost} getBlogPosts={this.props.getBlogPosts} sorter={this.props.sorter} name={this.props.name}/>
 				</div>
 			);
 		}.bind(this));
 		return (
 			<div>
 				<div>
-					<h1>Hello, {this.props.name}!</h1>
+					<h1>Hello, {this.props.name[1]}!</h1>
 				</div>
 				<div id='blogBox'>
 					{postArray}

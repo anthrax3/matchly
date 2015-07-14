@@ -15,13 +15,12 @@ var LoginBox = React.createClass({
             data: JSON.stringify(profileObject),
             url: '/login',
             success: function(data) {
-      			if(data==="check"){
-		      		self.props.getBlogPosts();
+            	console.log(data, "data")
+      		 		self.props.getBlogPosts();
 					//this sorts the blogposts before rendering
-					self.props.sort(self.props.blog);
-		      		self.props.setName(userName);
+							self.props.sort(self.props.blog);
+		      		self.props.setName(data);
 		      		self.props.page(1);
-      			}
       		}     	
         });
 
@@ -34,10 +33,11 @@ var LoginBox = React.createClass({
 
 	render: function() {
 		return (
-		  <div>
+		  <div id='loginBox'>
+		 		<h1>Ultimate Blog</h1>
 		  	<div id='loginPassword'>
-		  		<input placeholder='Username' id='userName'></input>
-		  		<input placeholder='Password' id='password'></input>
+	  			<input placeholder='Username' id='userName'></input>
+	  			<input placeholder='Password' id='password' type='password'></input>
 		 	</div>
 			<div id='loginButtonHolder'>
 			    <SubmitButton handleSubmit={this.handleSubmit} />

@@ -6,8 +6,8 @@ Blog = require('./client/blog.js');
 var App = React.createClass({
 	getInitialState: function() {
 		return {pageCounter: 0,
-			name: null,
-			blogPosts: [{votes: 0}, {votes:1}]
+			name: [123,"null"],
+			blogPosts: []
 		};
 	},
 
@@ -42,10 +42,6 @@ var App = React.createClass({
 		this.setState({pageCounter: page});
 	},
 
-	registerNewUser: function(first) {
-		this.setState({name: first});
-	},
-
 	render: function() {
 		if(this.state.pageCounter === 0) {
 			return(
@@ -63,7 +59,7 @@ var App = React.createClass({
 		else if (this.state.pageCounter === 2) {
 			return (
 				<div>
-					<Register page={this.pageTurner} newUser={this.registerNewUser}/>
+					<Register page={this.pageTurner} newUser={this.setName} getBlogPosts={this.getBlogPosts} />
 				</div>
 			);
 		}				
