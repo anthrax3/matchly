@@ -1,97 +1,61 @@
 var UserProfile = require('./userModel.js');
-var BlogPost = require('./UserBlogPost.js');
-module.exports = {
+var bcrypt = require('bcrypt-nodejs');
+var cookieParser = require('cookie-parser');
 
-	vote: function(req, res) {
-    var voter = req.body.voter_id;
-    var vote = parseInt(req.body.vote);
-    var query = {'_id': req.body._id};
-    BlogPost.findOne(query, function(err, data) {
-      if(err) {
-        res.send(err);
-      }
-      var bool=false;
-      data.voters.forEach(function(voter){
-        if(voter===req.body.voter_id) {
-          bool=true;
-        }
-      });
-      if(bool===false) {
-        data.voters.push(voter);
-        data.votes = data.votes + vote;
-        data.save();
-        res.send("vote fires");        
-      }
+module.exports = {
+  cookieCheck: function(req,res) {
+    var cookie = req.cookies.matchlycookie;
+    UserProfile.findOne({'matchlycookie': cookie}, function(err, data) {
+        // console.log(data);
+        res.send(data);
     });
   },
 
-  getBlogPosts: function(req, res) {
-		BlogPost.find({}, function(err, data) {
-			if(err) {
-				return res.send(err);
-			}
-			res.send(data);
-		});
-	},
+  checkLogin: function(req, res) {
+    var hash = req.body.password;
+    UserProfile.findOne({username: req.body.username}, function(err, data) {
+      var dbhash = data[0].password;
+      var compare = bcrypt.compareSync(hash, dbhash); // true when using correct password
+      if(compare) {
+         if(req.cookies.matchlycookie===underfined){
+          //set cookie
+         }
+      }
+      if(err) {
+        return res.send(err);
+      }
+      res.send(data);
+    });
+  },
 
-	makeBlogPost: function(req, res) {
-		BlogPost.create(req.body, function(err, newBlogPost) {
-			if(err) {
-				return res.send(err);
-			}
-			res.send(newBlogPost);
-		});
-	},
+  registerUser: function(req, res) {
+    // console.log(req.body, "before has");
+    req.body.password=bcrypt.hashSync(req.body.password);
+    req.body.matchlycookie=req.cookies.matchlycookie;
 
-	login: function(req, res) {
-		// console.log(req.body);
-		UserProfile.findOne({'userName': req.body.userName}, function(err, data) {
-			var password = req.body.password;
-			password = password.split("").map(function(e) {
-          	if(/[0-9]/.test(e)) {
-            	return parseInt(e);
-          	}
-          	else {
-            	return e.charCodeAt(e);
-          	}  
-		});
-			var encript = 1;
-			password.forEach(function(i) {
-			encript = encript*i*3;
-			});
-			req.body.password = parseInt(encript/2/3/5*7*11*13/17/19/23/31*34*35*36*37);
-			if(req.body.password === parseInt(data.password)) {
-				var userInfo = [data._id, data.name];
+    // console.log(req.body,"after hash");
+    UserProfile.create(req.body, function(err, data) {
+      if(err) {
+        return res.send(err);
+      }
+      res.send(data);
+    });
+    // bcrypt.compareSync("bacon", hash); // true
+    // bcrypt.compareSync("veggies", hash); // false
+    
+  },
 
-        res.send(userInfo);
-			}
-			if(err) {
-				return res.send(err);
-			}
-		});
-	},
+	
 
-	postUserProfile: function(req, res) {
-		var password = req.body.password;
-		password = password.split("").map(function(e) {
-          if(/[0-9]/.test(e)) {
-            return parseInt(e);
-          }
-          else {
-            return e.charCodeAt(e);
-          }    
-	});
-			var encript = 1;
-			password.forEach(function(i) {
-				encript = encript*i*3;
-			});
-			req.body.password = parseInt(encript/2/3/5*7*11*13/17/19/23/31*34*35*36*37);
-		
-		UserProfile.create(req.body, function(err, data) {
-			if(err) {
-				res.send(err);
-			}
-			res.send(data);
-		});
-	}
+ //  getBlogPosts: function(req, res) {
+	// 	BlogPost.find({}, function(err, data) {
+	// 		if(err) {
+	// 			return res.send(err);
+	// 		}
+	// 		res.send(data);
+	// 	});
+	// },
+
+
+
 };

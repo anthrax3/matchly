@@ -1,70 +1,66 @@
-React = require('react');
-LoginBox = require('./client/loginBox.js');
-Register = require('./client/register.js');
-Blog = require('./client/blog.js');
+var React = require('react');
 
-var App = React.createClass({
-	getInitialState: function() {
-		return {pageCounter: 0,
-			name: [123,"null"],
-			blogPosts: []
-		};
-	},
+var Login = require('./client/Login.jsx');
+var Register = require('./client/Register.jsx');
+var Home = require('./client/Home.jsx');
+var CheckLogin = require('./client/CheckLogin.jsx');
 
-	getBlogPosts: function() {
-		var self = this;
-		$.ajax({
-      method: 'GET',
-      dataType: 'json',
-      url: '/makeBlogPost',
-      success: function(data) {
-      	self.setState({blogPosts: data});
-				self.blogSorter();   		
-   		}
-    });
-	},
+var Router = require('react-router');
+var Route = Router.Route;
 
-	setName: function(name) {
-		this.setState({name: name});
-	},
 
-	blogSorter: function() {
-		if(this.state.blogPosts !== undefined) {
-			var array = this.state.blogPosts;
-			array.sort(function(a,b) {
-				return b.votes - a.votes;
-			});
-			this.setState({blogPosts: array});
-		}
- 	},
-
-	pageTurner: function(page) {
-		this.setState({pageCounter: page});
-	},
-
-	render: function() {
-		if(this.state.pageCounter === 0) {
-			return(
-				<div>
-	   		  		<LoginBox page={this.pageTurner} name={this.state.name} sort={this.blogSorter} blog={this.state.blogPosts} setName={this.setName} getBlogPosts={this.getBlogPosts} />
-				</div>);
-		}
-		else if (this.state.pageCounter === 1) {
-			return (
-				<div>
-					<Blog post={this.state.blogPosts} name={this.state.name} getBlogPosts={this.getBlogPosts} page={this.pageTurner} sorter={this.blogSorter} />
-				</div>
-			);
-		}
-		else if (this.state.pageCounter === 2) {
-			return (
-				<div>
-					<Register page={this.pageTurner} newUser={this.setName} getBlogPosts={this.getBlogPosts} />
-				</div>
-			);
-		}				
-	}
-
+var About = React.createClass({
+  render: function () {
+    return <h2>About</h2>;
+  }
 });
 
-React.render(<App />, document.body);
+var HomeWrapper = React.createClass({
+  render: function () {
+    return (
+        <Home setIndexNumber={this.setIndexNumber} />
+    );
+  }
+});
+
+var LoginWrapper = React.createClass({
+  render: function () {
+    return (
+        <Login setState={this.setState} />
+    );
+  }
+});
+
+//these are the routes, they determine which component will be 
+//loaded for each url
+var routes = (
+  <Route handler={App}>
+    <Route path="" handler={CheckLogin}/>
+    <Route path="register" handler={Register}/>
+    <Route path="about" handler={About}/>
+    <Route path="login" handler={LoginWrapper}/>
+    <Route path="home" handler={HomeWrapper}/>
+  </Route>
+);
+
+var RouteHandler = Router.RouteHandler;
+
+var App = React.createClass({
+
+  render: function() {
+    var appScope=this;
+    return (
+      <div>
+        <h1>App</h1>
+        <h2>Hello {this.state.name}</h2>
+        <RouteHandler/>
+      </div>
+    )
+  }
+});
+
+Router.run(routes, Router.HashLocation, function(Root){
+  React.render(<Root/>, document.body);
+});
+
+

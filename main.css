@@ -1,7 +1,23 @@
 body {
-  background: blue;
+  background: teal;
 }
 
+p{
+  display: inline;
+  margin-right: 10px;
+}
+
+#calendar{
+  border-style: solid;
+  border-radius: 5px;
+  border-top-color: black;
+}
+
+.day{
+  margin: 5px,5px,5px,5px;
+
+}
+/*
 #loginBox {
   position: relative;
   top: 50%;
@@ -39,7 +55,7 @@ h1{
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  /*text-align: center;*/
+  text-align: center;
   margin-top: 30%; 
 }
 
@@ -104,4 +120,4 @@ h1{
   border-radius: 5px;
   border-style: solid;
   margin: 5px 5px 5px 5px;
-}
+}*/
