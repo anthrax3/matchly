@@ -1,12 +1,20 @@
 var React=require('react');
 
 var Match = React.createClass({
+  match:function(){
+    $.ajax({
+      method: 'GET',
+      dataType: 'json',
+      url: '/match',
+      success: function(data) {
+        console.log("data", data);
+      }
+    });
+  },
+
   render:function(){
     return(
       <div id='workBox'>
-        <div id='date'>
-          <h1>{this.props.indexNumber}</h1>
-        </div>
         <div id='tabs'>
           <ul>
             <li onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
@@ -15,14 +23,13 @@ var Match = React.createClass({
           </ul>
         </div>
         <div id='workArea'>
-          {this.props.workNumber}
           <div id='list-of-visitors'>
             <h1>list of visitors</h1>
           </div>
           <div id='schedule'>
             <h1>schedule</h1>
           </div>
-          <button>match</button>
+          <button onClick={this.match}>match</button>
         </div>
       </div>
     );

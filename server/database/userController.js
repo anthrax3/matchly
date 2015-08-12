@@ -1,6 +1,11 @@
 var UserProfile = require('./userModel.js');
+var VisitorProfile = require('./visitorModel.js');
+var HostProfile = require('./hostModel.js');
 var bcrypt = require('bcrypt-nodejs');
 var cookieParser = require('cookie-parser');
+var availabilityProfile = require('./availability.js');
+var Promise = require("bluebird");
+var Rumble = require('./../../algorithm2.js');
 
 module.exports = {
   cookieCheck: function(req,res) {
@@ -8,6 +13,55 @@ module.exports = {
     UserProfile.findOne({'matchlycookie': cookie}, function(err, data) {
         // console.log(data);
         res.send(data);
+    });
+  },
+
+  rumble:function(req,res) {
+    var VisitorData;
+    var HostData;
+    var AvailabiltyConstraint;
+    VisitorProfile.find({},function(err, data){
+      if(err) {
+        return res.send(err);
+      }
+      VisitorData=data;
+      HostProfile.find({},function(err, data){
+        if(err) {
+          return res.send(err);
+        }
+        HostData=data;
+        availabilityProfile.find({},function(err, data){
+          if(err) {
+            return res.send(err);
+          }
+          AvailabiltyConstraint=data;
+          Rumble.rumble(VisitorData,HostData,AvailabiltyConstraint);
+          // var results=Rumble.rumble(VisitorData, HostData, AvailabiltyConstraint);
+          // res.send(results);
+          // var rumble=function(visitors, hosts, constraints){
+          //   // console.log(visitors,'visitors');
+          //   // console.log(hosts,'hosts');
+          //   // console.log(constraints,'Constraint');
+          //   res.send([visitors, hosts, constraints]);
+          // };
+          // rumble(VisitorData, HostData, AvailabiltyConstraint);
+        });
+      });
+    });
+  },
+
+  availability:function(req,res) {
+    console.log(req.body);
+    // for(var key in req.body){
+    //   req.body[key]=parseInt(req.body[key]);
+    // }
+    // console.log('available', req.body);
+
+    availabilityProfile.create(req.body, function(err, data) {
+      if(err) {
+        return res.send(err);
+      }
+      res.send(data);
     });
   },
 
@@ -26,6 +80,30 @@ module.exports = {
       }
       res.send(data);
     });
+  },
+  submithosts: function(req, res) {
+    console.log(req.body);
+    req.body.forEach(function(element){
+      HostProfile.create(element, function(err, data) {
+        if(err) {
+          return res.send(err);
+        }
+        res.send(data);
+      });
+    });
+  },
+
+  submitvisitors: function(req,res) {
+    console.log(req.body);
+    req.body.forEach(function(element){
+      VisitorProfile.create(element, function(err, data) {
+        if(err) {
+          return res.send(err);
+        }
+        res.send(data);
+      });
+    });
+    
   },
 
   registerUser: function(req, res) {

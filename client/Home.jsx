@@ -35,35 +35,9 @@ var Home = React.createClass({
     workArea=<Upload workNumber={this.state.workNumber} setWorkArea={this.setWorkArea} indexNumber={this.state.indexNumber} />;
   }
 
-  var dayOfWeek=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  dayOfWeek.map(function(day) {
-    return(
-      <div className='dayOfWeek'>
-        day
-      </div>
-    );
-  });
-  var dayOfMonthComponents=[];
-  for(var i=1; i<32;i++){
-    dayOfMonthComponents.push(i);
-  }
-  var dayComponents=dayOfMonthComponents.map(function(day, i) {
-    return(
-      <div>
-        <Day setIndexNumber={self.setIndexNumber} day={day} index={i+1} />
-      </div>
-    );
-  });
-
     return(
       <div>
         <h1>Home page</h1>
-        <div id='calendar'>
-          {dayOfWeek}
-        </div>
-        <div className='days'>
-          {dayComponents}
-        </div>
         <div id='workArea'>
           {workArea}
         </div>

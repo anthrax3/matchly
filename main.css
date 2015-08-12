@@ -17,6 +17,22 @@ p{
   margin: 5px,5px,5px,5px;
 
 }
+#array-of-individuals{
+overflow:scroll; 
+height:400px;
+}
+
+.row-title{
+  display: inline;
+}
+.table-row{
+  display: block;
+}
+
+.sections{
+  display: inline;
+}
+
 /*
 #loginBox {
   position: relative;
