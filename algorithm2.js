@@ -1,6 +1,6 @@
 
 var Rumble = {
-  calculateMatchScore: function(visitor, host) {
+  calculatematchScore: function(visitor, host) {
     // console.log(visitor);
     // console.log(host);
     var score=0;
@@ -89,6 +89,15 @@ var Rumble = {
     return specificClass;
 
   },
+  ClassAvailable:function(constraintObject, specificClass,score) {
+    if(constraintObject[specificClass].availableSpots>0){
+      return true;
+    }
+    if(score > constraintObject[specificClass].lowestScore){
+      return true;
+    }
+    return false;
+  },
   
   rumble: function(visitorArray, hostArray, constraintObject) {
     constraintObject=constraintObject[0];
@@ -98,22 +107,30 @@ var Rumble = {
       for(var i = 0; i<visitorArray.length; i++) {
         if(visitorArray[i].MatchInfo.matchIndex === null) {
           bool = true;
-          var bestMatchScore=-1;
+          var bestmatchScore=-1;
           var bestMatchIndex;
+          var classNumber=visitorArray[i].MatchInfo.classVisitTime;
           for(var k =0; k<hostArray.length; k++) {
-            var currentScore=this.calculateMatchScore(visitorArray[i],hostArray[k]);
+            var currentScore=this.calculatematchScore(visitorArray[i],hostArray[k]);
             // console.log(currentScore,'currentScore');
             var hostCurrentScore=hostArray[k].MatchInfo;
-            if (currentScore>bestMatchScore) {
-              bestMatchScore=currentScore;
+            //constraint determining if visitor choose current host as best match
+              //is the current host a better match than your existing best match
+              //is the current visitor a better match than the current hosts existing match
+              //is the specific class not full or is the potential match better than the worst match in the specific class
+              var hostCurrentmatchScore=hostArray[k].MatchInfo[classNumber].matchScore;
+              var hostClass=this.SpecificClass(visitorArray[i],hostArray[k]);
+              var classAvailable=this.ClassAvailable(constraintObject,hostClass,currentScore);
+            if (currentScore>bestmatchScore && currentScore>hostCurrentmatchScore &&  classAvailable===true) {
+              bestmatchScore=currentScore;
               bestMatchIndex=k;
-            }//closes currentScore>bestMatchScore
+            }//closes currentScore>bestmatchScore
           }//closes var j =0; j<hostArray.length; j++
           var visitor=visitorArray[i];
           var host=hostArray[bestMatchIndex]; 
           //determineQuadrant determines which quadrant we are in for assigning matches
           //this looks like 'firstClass'
-          var classNumber=visitorArray[i].MatchInfo.classVisitTime;
+          
           var specificClass = this.SpecificClass(visitorArray[i],hostArray[bestMatchIndex]);
           var hostEmail=hostArray[bestMatchIndex].Contact.Email;
           var quadrant=this.determineQuadrant(visitor, host, constraintObject);
@@ -126,17 +143,17 @@ var Rumble = {
               visitorArray[originalMatchIndex].MatchInfo.matchScore=-1;
               //assign new visitor to host
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
-              visitorArray[i].MatchInfo.matchScore=bestMatchScore;
+              visitorArray[i].MatchInfo.matchScore=bestmatchScore;
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
-              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestMatchScore;
+              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
               //assign both to class
               
               constraintObject[specificClass].matches[hostEmail]={
                 hostIndex: bestMatchIndex,
                 hostClass: classNumber,
                 visitorIndex: i,
-                matchScore: bestMatchScore
+                matchScore: bestmatchScore
               };
               //delete exists from object
               delete constraintObject[specificClass].matches.exists;
@@ -144,11 +161,11 @@ var Rumble = {
               var lowestScore=1000000000;
               var lowestIndex;
               for(var match in constraintObject[specificClass].matches){
-                if(match[matchscore]<lowestScore){
-                  lowestScore=match.matchscore;
+                if(match[matchScore]<lowestScore){
+                  lowestScore=match.matchScore;
                   lowestIndex=match;
                 }
-                constraintObject[specificClass].worstMatchScore=lowestScore;
+                constraintObject[specificClass].worstmatchScore=lowestScore;
                 constraintObject[specificClass].worstMatchIndex=lowestIndex;
               }
 
@@ -162,21 +179,21 @@ var Rumble = {
               visitorArray[originalMatchIndex].MatchInfo.matchScore=-1;
               //assign new visitor to host
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
-              visitorArray[i].MatchInfo.matchScore=bestMatchScore;
+              visitorArray[i].MatchInfo.matchScore=bestmatchScore;
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
-              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestMatchScore;
+              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
               //assign both to class
-              var worstMatchScore=constraintObject[specificClass].worstMatchScore;
-              if(bestMatchScore<worstMatchScore) {
-                constraintObject[specificClass].worstMatchScore=bestMatchScore;
+              var worstmatchScore=constraintObject[specificClass].worstmatchScore;
+              if(bestmatchScore<worstmatchScore) {
+                constraintObject[specificClass].worstmatchScore=bestmatchScore;
                 constraintObject[specificClass].worstMatchIndex=hostEmail;
               }
               constraintObject[specificClass].matches[hostEmail]={
                 hostIndex: bestMatchIndex,
                 hostClass: classNumber,
                 visitorIndex: i,
-                matchScore: bestMatchScore
+                matchScore: bestmatchScore
               };
               constraintObject.availableSpots--;
               break;
@@ -200,17 +217,17 @@ var Rumble = {
               visitorArray[visitorIndex].MatchInfo.matchScore=-1;
               //assign host to visitor
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
-              visitorArray[i].MatchInfo.matchScore=bestMatchScore;
+              visitorArray[i].MatchInfo.matchScore=bestmatchScore;
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
-              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestMatchScore;
+              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
               //assign both to class
               
               constraintObject[specificClass].matches[hostEmail]={
                 hostIndex: bestMatchIndex,
                 hostClass: classNumber,
                 visitorIndex: i,
-                matchScore: bestMatchScore
+                matchScore: bestmatchScore
               };
               //delete exists from object
               delete constraintObject[specificClass].matches.exists;
@@ -218,11 +235,11 @@ var Rumble = {
               var lowestScore=1000000000;
               var lowestIndex;
               for(var match in constraintObject[specificClass].matches){
-                if(match[matchscore]<lowestScore){
-                  lowestScore=match.matchscore;
+                if(match[matchScore]<lowestScore){
+                  lowestScore=match.matchScore;
                   lowestIndex=match;
                 }
-                constraintObject[specificClass].worstMatchScore=lowestScore;
+                constraintObject[specificClass].worstmatchScore=lowestScore;
                 constraintObject[specificClass].worstMatchIndex=lowestIndex;
               }
 
@@ -230,21 +247,21 @@ var Rumble = {
             case "notMatchedNotFull":
               //assign host to visitor
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
-              visitorArray[i].MatchInfo.matchScore=bestMatchScore;
+              visitorArray[i].MatchInfo.matchScore=bestmatchScore;
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
-              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestMatchScore;
+              hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
               //assign both to class
-              var worstMatchScore=constraintObject[specificClass].worstMatchScore;
-              if(bestMatchScore<worstMatchScore) {
-                constraintObject[specificClass].worstMatchScore=bestMatchScore;
+              var worstmatchScore=constraintObject[specificClass].worstmatchScore;
+              if(bestmatchScore<worstmatchScore) {
+                constraintObject[specificClass].worstmatchScore=bestmatchScore;
                 constraintObject[specificClass].worstMatchIndex=hostEmail;
               }
               constraintObject[specificClass].matches[hostEmail]={
                 hostIndex: bestMatchIndex,
                 hostClass: classNumber,
                 visitorIndex: i,
-                matchScore: bestMatchScore
+                matchScore: bestmatchScore
               };
               constraintObject.availableSpots--;
               
@@ -262,7 +279,7 @@ var Rumble = {
 };
 
 //to do:
-//add worst matchscore=-1 and worst match index=null to constraintObject
+//add worst matchScore=-1 and worst match index=null to constraintObject
 //add if statement to matching to determin if you are the best match for the host and better than the worst match in the class or is there room
 module.exports=Rumble;
 
