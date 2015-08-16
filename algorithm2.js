@@ -89,6 +89,7 @@ var Rumble = {
       this.hostEmail=hostEmail;
       this.section=section;
       this.visitTime=visitTime;
+      this.sectionTime=section+visitTime.toString();
     }
     var matches = visitorArray.map(function(visitor){
       var host=hostArray[visitor.MatchInfo.matchIndex];
@@ -109,6 +110,15 @@ var Rumble = {
       }
     }
     return capacity;
+  },
+  SortReturnObject: function(returnObject) {
+    // console.log(returnObject,'returnObject');
+    returnObject=returnObject.sort(function(a,b){
+      console.log(a.sectionTime,'a section time');
+      console.log(b.sectionTime,'b section time');
+      return a.sectionTime-b.sectionTime;
+    });
+    return returnObject;
   },
 
   SectionReport:function(constraintObject,originalCapacity) {
@@ -137,12 +147,12 @@ var Rumble = {
     var bool = true;
     var whileCount=0;
     var originalCapacity=this.SectionCapacity(constraintObject);
-    console.log(originalCapacity,'originalCapacity');
+    // console.log(originalCapacity,'originalCapacity');
 
     while(bool) {
       
       whileCount++;
-      console.log('whileCount ', whileCount);
+      // console.log('whileCount ', whileCount);
       bool=false;
       
       for(var i = 0; i<visitorArray.length; i++) {
@@ -362,8 +372,11 @@ var Rumble = {
     }//while loop
     // console.log('end of rumble');
     var visitorHostParings=this.visitorHostParings(visitorArray,hostArray,constraintObject);
+    visitorHostParings=this.SortReturnObject(visitorHostParings);
     var sectionReport=this.SectionReport(constraintObject,originalCapacity);
-    return [visitorHostParings,sectionReport];
+   //add section report and make it work
+   //also fix the sort function!!!!
+    return visitorHostParings;
   }//close rumble
 };
 

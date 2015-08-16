@@ -1,18 +1,29 @@
 var React=require('react');
-
+var Visitor=require('./Visitors.jsx');
 var Match = React.createClass({
   match:function(){
+    console.log(this.props,'props');
+    var self=this;
     $.ajax({
       method: 'GET',
       dataType: 'json',
       url: '/match',
       success: function(data) {
         console.log("data", data);
+        console.log(self, 'self');
+        self.props.setMatchData(data);
       }
     });
   },
 
   render:function(){
+    var data=[];
+    if(this.props.matchData!==null){
+      console.log('if statement fires');
+      data=this.props.matchData.map(function(visitor){
+        return (<div><Visitor visitor={visitor} /></div>);
+      });  
+    }
     return(
       <div id='workBox'>
         <div id='tabs'>
@@ -30,6 +41,9 @@ var Match = React.createClass({
             <h1>schedule</h1>
           </div>
           <button onClick={this.match}>match</button>
+        </div>
+        <div>
+          {data}
         </div>
       </div>
     );
