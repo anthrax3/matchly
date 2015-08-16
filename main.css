@@ -1,5 +1,14 @@
-body {
-  background: teal;
+/*id's: workBox, tabs, workArea, , list-of-visitors, schedule*/
+/*created id's for: match, available, upload, matchButton, data*/
+html, body, h1, h2, h3, h4, p, div, ul, li, a {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-size: 100%
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 200;
+	list-style: none;
+	text-decoration: none;
 }
 
 p{
@@ -18,7 +27,7 @@ p{
 
 }
 #array-of-individuals{
-overflow:scroll; 
+overflow:scroll;
 height:400px;
 }
 
@@ -73,7 +82,7 @@ h1{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 30%; 
+  margin-top: 30%;
 }
 
 #firstName {

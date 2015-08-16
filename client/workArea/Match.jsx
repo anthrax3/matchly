@@ -22,15 +22,15 @@ var Match = React.createClass({
       console.log('if statement fires');
       data=this.props.matchData.map(function(visitor){
         return (<div><Visitor visitor={visitor} /></div>);
-      });  
+      });
     }
     return(
       <div id='workBox'>
         <div id='tabs'>
           <ul>
-            <li onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
-            <li onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
-            <li onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
+            <li id='match' onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
+            <li id= 'available' onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
+            <li id='upload' onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
           </ul>
         </div>
         <div id='workArea'>
@@ -40,9 +40,9 @@ var Match = React.createClass({
           <div id='schedule'>
             <h1>schedule</h1>
           </div>
-          <button onClick={this.match}>match</button>
+          <button id='matchButton' onClick={this.match}>match</button>
         </div>
-        <div>
+        <div id='data'>
           {data}
         </div>
       </div>
