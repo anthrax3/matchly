@@ -30,37 +30,25 @@ module.exports = {
           return res.send(err);
         }
         HostData=data;
-        availabilityProfile.find({},function(err, data){
+        availabilityProfile.find({}).lean().exec(function(err, data){
           if(err) {
             return res.send(err);
           }
           AvailabiltyConstraint=data;
-          Rumble.rumble(VisitorData,HostData,AvailabiltyConstraint);
-          // var results=Rumble.rumble(VisitorData, HostData, AvailabiltyConstraint);
-          // res.send(results);
-          // var rumble=function(visitors, hosts, constraints){
-          //   // console.log(visitors,'visitors');
-          //   // console.log(hosts,'hosts');
-          //   // console.log(constraints,'Constraint');
-          //   res.send([visitors, hosts, constraints]);
-          // };
-          // rumble(VisitorData, HostData, AvailabiltyConstraint);
+          res.send(Rumble.rumble(VisitorData,HostData,AvailabiltyConstraint));
+          
         });
       });
     });
   },
 
   availability:function(req,res) {
-    console.log(req.body);
-    // for(var key in req.body){
-    //   req.body[key]=parseInt(req.body[key]);
-    // }
-    // console.log('available', req.body);
 
     availabilityProfile.create(req.body, function(err, data) {
       if(err) {
         return res.send(err);
       }
+      console.log(data,'data');
       res.send(data);
     });
   },
@@ -88,6 +76,7 @@ module.exports = {
         if(err) {
           return res.send(err);
         }
+        data = data.toObject();
         res.send(data);
       });
     });

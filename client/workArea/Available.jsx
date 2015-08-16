@@ -20,105 +20,105 @@ var Available=React.createClass({
 
     var dataObject={
       A1:{ availableSpots: A1,
-        lowestScore: -1,
+        lowestScore: 10000000000,
         lowestIndex: null, 
            matches: {
             exists: 'yes'
            }
           },
       A2:{ availableSpots: A2,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       A3:{ availableSpots: A3,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       B1:{ availableSpots: B1,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       B2:{ availableSpots: B2,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       B3:{ availableSpots: B3,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       C1:{ availableSpots: C1,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       C2:{ availableSpots: C2,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       C3:{ availableSpots: C3,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       D1:{ availableSpots: D1,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       D2:{ availableSpots: D2,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       D3:{ availableSpots: D3,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       E1:{ availableSpots: E1,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       E2:{ availableSpots: E2,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
            }
           },
       E3:{ availableSpots: E3,
-          lowestScore: -1,
+          lowestScore: 10000000000,
         lowestIndex: null,
            matches: {
             exists: 'yes'
@@ -162,30 +162,30 @@ var Available=React.createClass({
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title'>Class 1</h3>
-                <input type='text' className='A1' required ></input>
-                <input type='text' className='B1' required ></input>
-                <input type='text' className='C1' required ></input>
-                <input type='text' className='D1' required ></input>
-                <input type='text' className='E1' required ></input>
+                <h3 className='row-title sections'>Class 1</h3>
+                <input type='text' className='A1 sections' required ></input>
+                <input type='text' className='B1 sections' required ></input>
+                <input type='text' className='C1 sections' required ></input>
+                <input type='text' className='D1 sections' required ></input>
+                <input type='text' className='E1 sections' required ></input>
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title'>Class 2</h3>
-                <input type='text' className='A2' required ></input>
-                <input type='text' className='B2' required ></input>
-                <input type='text' className='C2' required></input>
-                <input type='text' className='D2' required></input>
-                <input type='text' className='E2' required ></input>
+                <h3 className='row-title sections'>Class 2</h3>
+                <input type='text' className='A2 sections' required ></input>
+                <input type='text' className='B2 sections' required ></input>
+                <input type='text' className='C2 sections' required></input>
+                <input type='text' className='D2 sections' required></input>
+                <input type='text' className='E2 sections' required ></input>
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title'>Class 3</h3>
-                <input type='text' className='A3' required ></input>
-                <input type='text' className='B3' required ></input>
-                <input type='text' className='C3' required ></input>
-                <input type='text' className='D3' required ></input>
-                <input type='text' className='E3' required ></input>
+                <h3 className='row-title sections'>Class 3</h3>
+                <input type='text' className='A3 sections' required ></input>
+                <input type='text' className='B3 sections' required ></input>
+                <input type='text' className='C3 sections' required ></input>
+                <input type='text' className='D3 sections' required ></input>
+                <input type='text' className='E3 sections' required ></input>
               </tr>
             </table>
             <input id='submitButton' type='submit'></input>

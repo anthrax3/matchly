@@ -122,6 +122,11 @@ var availabilitySchema = new Schema({
       exists:{type: String}
     }
   },
-});
+}, {toObject:true});
+
+availabilitySchema.set('toObject', { getters: true });
+
+
 
 module.exports = mongoose.model('availability', availabilitySchema);
+
