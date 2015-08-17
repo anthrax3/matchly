@@ -25,27 +25,28 @@ var Match = React.createClass({
       });
     }
     return(
-      <div id='workBox'>
-        <div id='tabs'>
-          <ul>
-            <li id='match' onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
-            <li id= 'available' onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
-            <li id='upload' onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
-          </ul>
-        </div>
-        <div id='workArea'>
-          <div id='list-of-visitors'>
-            <h1>list of visitors</h1>
+        <div id='workBox'>
+          <div id='tabs'>
+            <ul>
+              <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
+              <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
+              <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
+            </ul>
           </div>
-          <div id='schedule'>
-            <h1>schedule</h1>
+          <div id='workArea'>
+            <div id='list-of-visitors'>
+              <h2>list of visitors</h2>
+            </div>
+            <div id='schedule'>
+              <h2>schedule</h2>
+            </div>
+            <button id='matchButton' onClick={this.match}>match</button>
           </div>
-          <button id='matchButton' onClick={this.match}>match</button>
+          <div id='data'>
+            {data}
+          </div>
         </div>
-        <div id='data'>
-          {data}
-        </div>
-      </div>
+
     );
   }
 });

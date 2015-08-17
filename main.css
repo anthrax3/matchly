@@ -10,18 +10,28 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	list-style: none;
 	text-decoration: none;
 }
-
-p{
-  display: inline;
-  margin-right: 10px;
+#header {
+  font-family: "Gravitas One", "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  color: #F5CB5C;
+  background-color: #000000;
+  padding: 20px 0 20px 0;
 }
+#workBox {
 
+}
+#tabs {
+  padding: 30px;
+}
+#tabs li{
+  display: inline;
+  padding: 15px;
+}
 #calendar{
   border-style: solid;
   border-radius: 5px;
   border-top-color: black;
 }
-
 .day{
   margin: 5px,5px,5px,5px;
 
