@@ -26,20 +26,30 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 #tabs {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
+	background-color: #3F3F3F;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tabs ul{
+  padding: 20px;
 }
 #tabs li{
   font-size: 25px;
-  display: inline;
+  display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
   padding: 15px;
+	color: #FFFFFF;
+}
+#tabs li:hover{
+	color: #F5CB5C;
+}
+#tabs li:target{
+	color: #F4DA90;
 }
 #matchButton {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
 }
 #calendar{
   border-style: solid;
