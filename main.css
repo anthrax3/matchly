@@ -16,29 +16,39 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 #header {
   font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 60px;
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
-  padding: 20px 0 20px 0;
+  padding: 30px 0 30px 0;
 }
 #workBox {
-
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 #tabs {
+  margin-left: auto;
+  margin-right: auto;
   padding: 30px;
 }
 #tabs li{
+  font-size: 25px;
   display: inline;
   padding: 15px;
+}
+#matchButton {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #calendar{
   border-style: solid;
   border-radius: 5px;
   border-top-color: black;
 }
+
 .day{
   margin: 5px,5px,5px,5px;
-
 }
 #array-of-individuals{
 overflow:scroll;
