@@ -1,11 +1,66 @@
-body {
-  background: teal;
+/*id's: workBox, tabs, workArea, , list-of-visitors, schedule*/
+/*created id's for: match, available, upload, matchButton, data*/
+html, body, h1, h2, h3, h4, p, div, ul, li, a {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-size: 100%
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 200;
+	list-style: none;
+	text-decoration: none;
+}
+@font-face {
+  font-family: "Ribbon";
+  src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
+}
+#header {
+  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 60px;
+  text-align: center;
+  color: #F5CB5C;
+  background-color: #000000;
+  padding: 30px 0;
+}
+#workBox {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+#tabs {
+	background-color: #3F3F3F;
+	display: block;
+	width: 100vw;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#tabs ul{
+	margin-left: 20vw;
+	margin-right: 20vw;
+}
+#tabs li{
+  font-size: 25px;
+	font-weight: 200;
+  padding: 0 6vw;
+	display: inline;
+	color: #FFFFFF;
+}
+#tabs li:hover{
+	color: #F5CB5C;
+}
+#tabs li:target{
+	color: #F4DA90;
+}
+#matchButton {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: 200;
+  padding: 10px 20px;
+	border: 1px;
+	border-radius: 4px;
 }
 
-p{
-  display: inline;
-  margin-right: 10px;
-}
+
+
+
 
 #calendar{
   border-style: solid;
@@ -15,10 +70,9 @@ p{
 
 .day{
   margin: 5px,5px,5px,5px;
-
 }
 #array-of-individuals{
-overflow:scroll; 
+overflow:scroll;
 height:400px;
 }
 
@@ -73,7 +127,7 @@ h1{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 30%; 
+  margin-top: 30%;
 }
 
 #firstName {
