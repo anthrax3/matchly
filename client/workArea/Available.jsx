@@ -21,7 +21,7 @@ var Available=React.createClass({
     var dataObject={
       A1:{ availableSpots: A1,
         lowestScore: 10000000000,
-        lowestIndex: null, 
+        lowestIndex: null,
            matches: {
             exists: 'yes'
            }
@@ -139,14 +139,14 @@ var Available=React.createClass({
 
   render:function() {
     return(
-      <div id='avialable-box'>
+      <div id='available-box'>
         <div id='date'>
         </div>
         <div id='tabs'>
           <ul>
-            <li onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
-            <li onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
-            <li onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
+            <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
+            <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
+            <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
           </ul>
         </div>
         <div id='classAvailable'>

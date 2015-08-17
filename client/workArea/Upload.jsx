@@ -17,11 +17,11 @@ var Upload=React.createClass({
   componentDidMount: function(){
     document.getElementById("submitButton").disabled = true;
   },
-  
+
   populateIndividualArray:function(array) {
     if(array===null) {
       return;
-    } 
+    }
     if(this.state.hostOrVisitor==='host'){
       return array.map(function(element) {
         return(
@@ -33,7 +33,7 @@ var Upload=React.createClass({
           return(
             <ParsedDataVisitors data={element} />
           );
-        });  
+        });
       }
   },
 
@@ -46,7 +46,7 @@ var Upload=React.createClass({
       this.setState({hostOrVisitor: this.determineHostOrVisitor()});
       var data = document.getElementById('txtFileUpload').files;
       var reader = new FileReader();
-      reader.addEventListener('load', function(event) { 
+      reader.addEventListener('load', function(event) {
         var data = Papa.parse(event.target.result, {header:true});
         console.log(data, 'data');
         // self.setState({data: data});
@@ -69,7 +69,7 @@ var Upload=React.createClass({
 
   for(var i = 0; i<select.length; i++){
     if(select[i].checked === true){
-      hostOrVisitor = select[i].value; 
+      hostOrVisitor = select[i].value;
     }
   }
   return hostOrVisitor;
@@ -107,14 +107,14 @@ browserSupportFileUpload: function() {
   render:function() {
     return(
       <div id='Upload-box'>
-          <h1>upload</h1>
           <div id='tabs'>
             <ul>
-              <li onClick={this.props.setWorkArea.bind(this,0)}>Match</li>
-              <li onClick={this.props.setWorkArea.bind(this,1)}>Available</li>
-              <li onClick={this.props.setWorkArea.bind(this,2)}>Upload</li>
+              <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
+              <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
+              <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
             </ul>
           </div>
+          <h1>upload</h1>
           <form id='file-form' onSubmit={this.fileupload}>
             <div id='radio-buttons'>
               <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required>Hosts</input>
