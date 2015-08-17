@@ -10,8 +10,12 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	list-style: none;
 	text-decoration: none;
 }
+@font-face {
+  font-family: "Ribbon";
+  src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
+}
 #header {
-  font-family: "Gravitas One", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
