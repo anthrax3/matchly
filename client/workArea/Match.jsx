@@ -40,10 +40,7 @@ var Match = React.createClass({
             <div id='schedule'>
               <h2>schedule</h2>
             </div>
-            <button
-            id='matchButton'
-            style="margin-left: auto;margin-right: auto"
-            onClick={this.match}>MATCH</button>
+            <button id='matchButton' onClick={this.match}>MATCH</button>
           </div>
           <div id='data'>
             {data}
