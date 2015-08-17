@@ -20,25 +20,27 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
-  padding: 30px 0 30px 0;
+  padding: 30px 0;
 }
 #workBox {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 #tabs {
 	background-color: #3F3F3F;
-	margin-left: auto;
-	margin-right: auto;
+	display: block;
+	width: 100vw;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 #tabs ul{
-  padding: 20px;
+	margin-left: 20vw;
+	margin-right: 20vw;
 }
 #tabs li{
   font-size: 25px;
-  display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
-  padding: 15px;
+	font-weight: 200;
+  padding: 0 6vw;
+	display: inline;
 	color: #FFFFFF;
 }
 #tabs li:hover{
@@ -49,8 +51,17 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 #matchButton {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  padding: 10px;
+	font-size: 17px;
+	font-weight: 200;
+  padding: 10px 20px;
+	border: 1px;
+	border-radius: 4px;
 }
+
+
+
+
+
 #calendar{
   border-style: solid;
   border-radius: 5px;
