@@ -34,24 +34,24 @@ var Home = React.createClass({
   var workArea=<div></div>
   var workNumber=this.state.workNumber;
   if(workNumber===0) {
-    workArea=<Match workNumber={this.state.workNumber} 
-    setWorkArea={this.setWorkArea} 
-    indexNumber={this.state.indexNumber} 
-    setMatchData={this.setMatchData} 
+    workArea=<Match workNumber={this.state.workNumber}
+    setWorkArea={this.setWorkArea}
+    indexNumber={this.state.indexNumber}
+    setMatchData={this.setMatchData}
     matchData={this.state.matchData}/>;
   } else if(workNumber===1) {
-    workArea=<Available workNumber={this.state.workNumber} 
-    setWorkArea={this.setWorkArea} 
+    workArea=<Available workNumber={this.state.workNumber}
+    setWorkArea={this.setWorkArea}
     indexNumber={this.state.indexNumber} />;
   } else if(workNumber===2) {
-    workArea=<Upload workNumber={this.state.workNumber} 
-    setWorkArea={this.setWorkArea} 
+    workArea=<Upload workNumber={this.state.workNumber}
+    setWorkArea={this.setWorkArea}
     indexNumber={this.state.indexNumber} />;
   }
 
     return(
       <div>
-        <h1>Home page</h1>
+        <h1 id="header">MATCHLY</h1>
         <div id='workArea'>
           {workArea}
         </div>
