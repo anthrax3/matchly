@@ -16,6 +16,13 @@ var Match = React.createClass({
     });
   },
 
+  exportToCSV:function(){
+    console.log('export fires');
+    console.log('data',this.props.matchData);
+    console.log('export to csv',this.props.exportCSV);
+    this.props.exportCSV(this.props.matchData);
+  },
+
   render:function(){
     var data=[];
     if(this.props.matchData!==null){
@@ -41,6 +48,7 @@ var Match = React.createClass({
             <h1>schedule</h1>
           </div>
           <button onClick={this.match}>match</button>
+          <button onClick={this.exportToCSV}>Export data to CSV file</button>
         </div>
         <div>
           {data}

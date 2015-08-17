@@ -13,6 +13,17 @@ var Home = React.createClass({
       matchData:null
     };
   },
+
+  exportCSV:function(matchData){
+    // var data = [["Minsk",100000], ["Riga",200000]];
+    console.log('export csv in home fires');
+    console.log(matchData, 'matchData');
+    window.exportData = function exportData() {
+        alasql("SELECT * INTO CSV('matchData.csv') FROM ?",[matchData]);
+    };
+    window.exportData();
+  },
+
   setName:function(name){
     this.setState({name:name});
   },
@@ -37,7 +48,8 @@ var Home = React.createClass({
     workArea=<Match workNumber={this.state.workNumber} 
     setWorkArea={this.setWorkArea} 
     indexNumber={this.state.indexNumber} 
-    setMatchData={this.setMatchData} 
+    setMatchData={this.setMatchData}
+    exportCSV={this.exportCSV} 
     matchData={this.state.matchData}/>;
   } else if(workNumber===1) {
     workArea=<Available workNumber={this.state.workNumber} 
