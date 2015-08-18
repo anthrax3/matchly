@@ -133,6 +133,7 @@ var Available=React.createClass({
           url: '/availability',
             success: function(data) {
               console.log(data, "data");
+              alert('success!');
             }.bind(this)
       });
   },

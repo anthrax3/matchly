@@ -58,6 +58,35 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	border-radius: 4px;
 }
 
+#exportButton {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 1px;
+  border-radius: 4px;
+}
+
+#submitButton {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 1px;
+  border-radius: 4px;
+}
+
+#txtFileUpload {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 1px;
+  border-radius: 4px;
+}
 
 
 

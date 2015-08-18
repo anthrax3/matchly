@@ -100,6 +100,7 @@ browserSupportFileUpload: function() {
           data: JSON.stringify(dataArray),
           url: url,
             success: function(data) {
+              alert("Success!");
             }.bind(this)
       });
   },
