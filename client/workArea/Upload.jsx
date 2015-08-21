@@ -115,7 +115,7 @@ browserSupportFileUpload: function() {
               <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
             </ul>
           </div>
-          <h1>upload</h1>
+          
           <form id='file-form' onSubmit={this.fileupload}>
             <div id='radio-buttons'>
               <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required>Hosts</input>

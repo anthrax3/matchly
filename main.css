@@ -14,15 +14,23 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   font-family: "Ribbon";
   src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
 }
+@font-face {
+	font-family: "Ostrich Sans Bold";
+	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/OstrichSans-Bold.otf);
+}
+@font-face {
+	font-family: "Sullivan Bevel";
+	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/Sullivan-Bevel.otf);
+}
 #header {
-  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Ostrich Sans Bold", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 60px;
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
   padding: 30px 0;
 }
-#workBox {
+#workBox, #available-box, #Upload-box {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -69,45 +77,19 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 #tabs li:target{
 	color: #F4DA90;
 }
-#matchButton {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 17px;
-	font-weight: 200;
-  padding: 10px 20px;
-	border: 1px;
-	border-radius: 4px;
-}
-
-#exportButton {
+#matchButton, #exportButton, #submitButton, #txtFileUpload  {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 200;
   padding: 10px 20px;
-  margin-left: 10px;
   border: 1px;
   border-radius: 4px;
+	display: block;
+	margin: 10px auto 10px auto;
 }
+#data {
 
-#submitButton {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 200;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: 1px;
-  border-radius: 4px;
 }
-
-#txtFileUpload {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 200;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: 1px;
-  border-radius: 4px;
-}
-
 
 
 

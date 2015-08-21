@@ -42,13 +42,13 @@ var Match = React.createClass({
           </div>
           <div id='workArea'>
             <div id='list-of-visitors'>
-              <h2>list of visitors</h2>
+
             </div>
             <div id='schedule'>
-              <h2>schedule</h2>
+
             </div>
             <button id='matchButton' onClick={this.match}>MATCH</button>
-            <button id='exportButton' onClick={this.exportToCSV}>Export data to CSV file</button>
+            <button id='exportButton' onClick={this.exportToCSV}>Export Data to CSV file</button>
           </div>
           <div id='data'>
             {data}
