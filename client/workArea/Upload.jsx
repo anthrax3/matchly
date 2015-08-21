@@ -108,14 +108,16 @@ browserSupportFileUpload: function() {
   render:function() {
     return(
       <div id='Upload-box'>
+        <div id="nav">
           <div id='tabs'>
             <ul>
               <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
               <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
               <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
-            </ul>
+              </ul>
           </div>
-          
+        </div>
+
           <form id='file-form' onSubmit={this.fileupload}>
             <div id='radio-buttons'>
               <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required>Hosts</input>

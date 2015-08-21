@@ -54,15 +54,18 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 		padding-top: 20px;
 		padding-bottom: 20px;
 	}
-	#tabs ul{
-		width: 100vw;
-		margin-right: 20vw;
-		margin-left: 20vw;
+	#nav {
+		display: table;
+		width: 100%;
+	}
+	#tabs {
+		display: table-cell;
+		text-align: center;
 	}
 	#tabs li{
 	  font-size: 25px;
 		font-weight: 200;
-	  padding: 0 6%;
+	  padding: 0 5%;
 		display: inline;
 		color: #FFFFFF;
 	}
@@ -96,11 +99,10 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 #file-form {
 }
 #radio-buttons {
-	margin-top: 15px;
-	margin-bottom: 15px;
 }
-#dvImportSegments {
-
+.fileupload {
+	display: block;
+	margin: 0 auto;
 }
 
 /*?*/

@@ -33,12 +33,14 @@ var Match = React.createClass({
     }
     return(
         <div id='workBox'>
-          <div id='tabs'>
-            <ul>
-              <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
-              <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
-              <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
-            </ul>
+          <div id="nav">
+            <div id='tabs'>
+              <ul>
+                <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
+                <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
+                <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
+              </ul>
+          </div>
           </div>
           <div id='workArea'>
             <div id='list-of-visitors'>
