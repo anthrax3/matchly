@@ -3,6 +3,7 @@ var Day = require('./Day.jsx');
 var Match = require('./workArea/Match.jsx');
 var Available = require('./workArea/Available.jsx');
 var Upload = require('./workArea/Upload.jsx');
+// var alasql=require('alasql');
 
 var Home = React.createClass({
   getInitialState: function() {
