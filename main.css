@@ -12,11 +12,11 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	text-decoration: none;
 }
 @font-face {
-  font-family: "Ribbon";
-  src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
+	font-family: "ACMountain";
+	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/ACMountain.otf);
 }
 #header {
-  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 60px;
   text-align: center;
   color: #F5CB5C;
