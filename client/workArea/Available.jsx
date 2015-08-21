@@ -154,12 +154,14 @@ var Available=React.createClass({
           <form onSubmit={this.sendClassConstraints}>
             <table>
               <tr>
+                <div id="topRow">
                 <h3 className='sections'></h3>
                 <h3 className='sections'>A</h3>
                 <h3 className='sections'>B</h3>
                 <h3 className='sections'>C</h3>
                 <h3 className='sections'>D</h3>
                 <h3 className='sections'>E</h3>
+                </div>
               </tr>
               <br></br>
               <tr>

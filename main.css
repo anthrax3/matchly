@@ -1,5 +1,6 @@
 /*id's: workBox, tabs, workArea, , list-of-visitors, schedule*/
 /*created id's for: match, available, upload, matchButton, data*/
+/*Yellow: #F5CB5C*/
 html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	padding: 0;
 	border: 0;
@@ -14,16 +15,8 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   font-family: "Ribbon";
   src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
 }
-@font-face {
-	font-family: "Ostrich Sans Bold";
-	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/OstrichSans-Bold.otf);
-}
-@font-face {
-	font-family: "Sullivan Bevel";
-	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/Sullivan-Bevel.otf);
-}
 #header {
-  font-family: "Ostrich Sans Bold", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 60px;
   text-align: center;
   color: #F5CB5C;
@@ -33,7 +26,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 #workBox, #available-box, #Upload-box {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
-
+/*nav bar*/
 @media screen and (max-width:600px)  {
 	#tabs {
 		background-color: #3F3F3F;
@@ -49,11 +42,14 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 		text-align: center;
 		color: #FFFFFF;
 	}
+	#classAvailable {
+		margin: 5vh 2vw;
+	}
 }
 @media screen and (min-width:601px)  {
 	#tabs {
 		background-color: #3F3F3F;
-		display: block;
+		display: inline-block;
 		width: 100vw;
 		padding-top: 20px;
 		padding-bottom: 20px;
@@ -70,13 +66,14 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 		display: inline;
 		color: #FFFFFF;
 	}
+	#classAvailable {
+		margin: 5vh 8vw;
+	}
 }
 #tabs li:hover{
 	color: #F5CB5C;
 }
-#tabs li:target{
-	color: #F4DA90;
-}
+/*Buttons*/
 #matchButton, #exportButton, #submitButton, #txtFileUpload  {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
@@ -87,12 +84,26 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	display: block;
 	margin: 10px auto 10px auto;
 }
+/*Match Component*/
 #data {
 
 }
+/*Available Component*/
+#topRow {
+	text-align: center;
+}
+/*Upload Component*/
+#file-form {
+}
+#radio-buttons {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#dvImportSegments {
 
+}
 
-
+/*?*/
 #calendar{
   border-style: solid;
   border-radius: 5px;

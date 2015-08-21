@@ -48,7 +48,7 @@ var Match = React.createClass({
 
             </div>
             <button id='matchButton' onClick={this.match}>MATCH</button>
-            <button id='exportButton' onClick={this.exportToCSV}>Export Data to CSV file</button>
+            <button id='exportButton' onClick={this.exportToCSV}>Export Data to CSV File</button>
           </div>
           <div id='data'>
             {data}
