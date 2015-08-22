@@ -17,7 +17,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 60px;
+  font-size: 75px;
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
@@ -88,14 +88,38 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	margin: 10px auto 10px auto;
 }
 /*Match Component*/
+/*
 #data {
+	display: table;
+}
+*/
+#data {
+	display: table;
+	width: 75%;
+}
+#dataTable {
+	display: table-cell;
+}
+#dataTable td {
+	padding: ;
+	border-width: 1px;
+	border-spacing: none;
+}
+/*
+.tableDive #dataTable table td {
 
 }
+*/
 /*Available Component*/
 #topRow {
 	text-align: center;
 }
 /*Upload Component*/
+#uploadForm, #dvImportSegments {
+	width: 50%;
+	margin: 15px auto;
+	text-align: center;
+}
 #file-form {
 }
 #radio-buttons {

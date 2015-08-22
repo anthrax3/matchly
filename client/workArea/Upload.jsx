@@ -117,11 +117,12 @@ browserSupportFileUpload: function() {
               </ul>
           </div>
         </div>
-
+          <div id="uploadForm">
           <form id='file-form' onSubmit={this.fileupload}>
             <div id='radio-buttons'>
-              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required>Hosts</input>
-              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="visitor">Visitors</input>
+              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required> Hosts</input>
+              <br></br>
+              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="visitor"> Visitors</input>
             </div>
             <div id="dvImportSegments" class="fileupload ">
                 <legend>Upload your CSV File</legend>
@@ -129,6 +130,7 @@ browserSupportFileUpload: function() {
             </div>
             <input id='submitButton' type='submit'></input>
           </form>
+          </div>
           <div id="array-of-individuals">
             {this.populateIndividualArray(this.state.dataArray)}
           </div>

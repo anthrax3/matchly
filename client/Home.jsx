@@ -45,11 +45,11 @@ var Home = React.createClass({
   var workArea=<div></div>
   var workNumber=this.state.workNumber;
   if(workNumber===0) {
-    workArea=<Match workNumber={this.state.workNumber} 
-    setWorkArea={this.setWorkArea} 
-    indexNumber={this.state.indexNumber} 
+    workArea=<Match workNumber={this.state.workNumber}
+    setWorkArea={this.setWorkArea}
+    indexNumber={this.state.indexNumber}
     setMatchData={this.setMatchData}
-    exportCSV={this.exportCSV} 
+    exportCSV={this.exportCSV}
     matchData={this.state.matchData}/>;
   } else if(workNumber===1) {
     workArea=<Available workNumber={this.state.workNumber}
@@ -65,7 +65,7 @@ var Home = React.createClass({
       <div>
         <h1 id="header">MATCHLY</h1>
         <div id='workArea'>
-          {workArea}
+            {workArea}
         </div>
       </div>
     );
