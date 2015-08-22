@@ -2,7 +2,7 @@ var React=require('react');
 
 var Visitor=React.createClass({
   render:function(){
-  console.log(this.props.visitor,'visitor');
+  // console.log(this.props.visitor,'visitor');
     return(
       <div className='tableDive'>
         <div id="dataTable">
@@ -22,6 +22,9 @@ var Visitor=React.createClass({
             </td>
             <td>
               {this.props.visitor.visitTime}
+            </td>
+            <td>
+              {this.props.visitor.matchScore}
             </td>
             </tr>
         </table>

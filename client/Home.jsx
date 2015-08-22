@@ -16,6 +16,7 @@ var Home = React.createClass({
   },
 
   exportCSV:function(matchData){
+    console.log(matchData);
    var a = document.createElement('a');
     a.href = 'data:application/csv;charset=utf-8,'+encodeURIComponent(matchData);
     a.target = '_blank';

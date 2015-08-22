@@ -10,7 +10,7 @@ var Match = React.createClass({
       method: 'GET',
       url: '/match',
       success: function(data) {
-        console.log("data", data);
+        // console.log("data", data);
         // console.log(self, 'self');
         self.props.setMatchData(data);
         
@@ -19,17 +19,17 @@ var Match = React.createClass({
   },
 
   exportToCSV:function(){
-    this.props.exportCSV(this.props.matchData);
+    this.props.exportCSV(this.props.matchData.csv);
   },
 
   render:function(){
     var data=[];
     if(this.props.matchData!==null){
-      console.log('if statement fires');
-      console.log(this.props.matchData,'matchData');
-      // data=this.props.matchData.map(function(visitor){
-      //   return (<div><Visitor visitor={visitor} /></div>);
-      // });
+      // console.log('if statement fires');
+      // console.log(this.props.matchData.array,'matchData');
+      data=this.props.matchData.array.map(function(visitor){
+        return (<div><Visitor visitor={visitor} /></div>);
+      });
     }
     return(
         <div id='workBox'>

@@ -83,20 +83,23 @@ var Rumble = {
 
 
   visitorHostParings: function(visitorArray,hostArray) {
-    function Match(visitorFirstName,visitorLastName, hostFirstName, hostLastName, hostEmail, section, visitTime) {
+    function Match(visitorFirstName,visitorLastName, hostFirstName, hostLastName, hostEmail, section, visitTime, matchScore) {
       this.visitorName=visitorFirstName+" "+visitorLastName;
       this.hostName=hostFirstName+" "+hostLastName;
       this.hostEmail=hostEmail;
       this.section=section;
       this.visitTime=visitTime;
       this.sectionTime=section+visitTime.toString();
+      this.matchScore=matchScore;
     }
     var matches = visitorArray.map(function(visitor){
       var host=hostArray[visitor.MatchInfo.matchIndex];
-      var m = new Match(visitor.Contact.First,visitor.Contact.Last,host.Contact.First,host.Contact.Last,host.Contact.Email,host.MatchInfo.Section,visitor.MatchInfo.classVisitTime);
+      var m = new Match(visitor.Contact.First,visitor.Contact.Last,host.Contact.First,host.Contact.Last,host.Contact.Email,host.MatchInfo.Section,visitor.MatchInfo.classVisitTime,visitor.MatchInfo.matchScore);
       return m;
     });
 
+    matches.unshift(new Match('Visitor ', '','Host ','','Host Email', 'Section','Lecture','Match Score'));
+    
     return matches;
   },
   SectionCapacity:function(constraintObject) {

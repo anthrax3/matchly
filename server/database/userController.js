@@ -42,7 +42,11 @@ module.exports = {
             if(err){
               res.send(err);
             }
-            res.send(data);
+            var dataObject = {
+              csv:data,
+              array:RumbleData
+            };
+            res.send(dataObject);
           });
         });
       });
