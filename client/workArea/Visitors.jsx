@@ -5,26 +5,30 @@ var Visitor=React.createClass({
   console.log(this.props.visitor,'visitor');
     return(
       <div className='tableDive'>
-        <table>
-          <td>
-            {this.props.visitor.visitorName}
-          </td>
-          <td>
-            {this.props.visitor.hostName}
-          </td>
-          <td>
-            {this.props.visitor.hostEmail}
-          </td>
-          <td>
-            {this.props.visitor.section}
-          </td>
-          <td>
-            {this.props.visitor.visitTime}
-          </td>
+        <div id="dataTable">
+          <table>
+            <tr>
+            <td>
+              {this.props.visitor.visitorName}
+            </td>
+            <td>
+              {this.props.visitor.hostName}
+            </td>
+            <td>
+              {this.props.visitor.hostEmail}
+            </td>
+            <td>
+              {this.props.visitor.section}
+            </td>
+            <td>
+              {this.props.visitor.visitTime}
+            </td>
+            </tr>
         </table>
+        </div>
       </div>
     );
   }
-}); 
+});
 
 module.exports=Visitor;

@@ -108,18 +108,21 @@ browserSupportFileUpload: function() {
   render:function() {
     return(
       <div id='Upload-box'>
+        <div id="nav">
           <div id='tabs'>
             <ul>
               <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
               <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
               <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
-            </ul>
+              </ul>
           </div>
-          <h1>upload</h1>
+        </div>
+          <div id="uploadForm">
           <form id='file-form' onSubmit={this.fileupload}>
             <div id='radio-buttons'>
-              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required>Hosts</input>
-              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="visitor">Visitors</input>
+              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="host" required> Hosts</input>
+              <br></br>
+              <input type="radio" name='hostOrVisitor' onClick={this.toggleSubmit} value="visitor"> Visitors</input>
             </div>
             <div id="dvImportSegments" class="fileupload ">
                 <legend>Upload your CSV File</legend>
@@ -127,6 +130,7 @@ browserSupportFileUpload: function() {
             </div>
             <input id='submitButton' type='submit'></input>
           </form>
+          </div>
           <div id="array-of-individuals">
             {this.populateIndividualArray(this.state.dataArray)}
           </div>
