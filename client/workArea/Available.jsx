@@ -143,23 +143,27 @@ var Available=React.createClass({
       <div id='available-box'>
         <div id='date'>
         </div>
-        <div id='tabs'>
-          <ul>
-            <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
-            <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
-            <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
-          </ul>
+        <div id="nav">
+          <div id='tabs'>
+            <ul>
+              <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
+              <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
+              <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
+            </ul>
+        </div>
         </div>
         <div id='classAvailable'>
           <form onSubmit={this.sendClassConstraints}>
             <table>
               <tr>
+                <div id="topRow">
                 <h3 className='sections'></h3>
                 <h3 className='sections'>A</h3>
                 <h3 className='sections'>B</h3>
                 <h3 className='sections'>C</h3>
                 <h3 className='sections'>D</h3>
                 <h3 className='sections'>E</h3>
+                </div>
               </tr>
               <br></br>
               <tr>

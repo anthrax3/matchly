@@ -1,5 +1,6 @@
 /*id's: workBox, tabs, workArea, , list-of-visitors, schedule*/
 /*created id's for: match, available, upload, matchButton, data*/
+/*Yellow: #F5CB5C*/
 html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	padding: 0;
 	border: 0;
@@ -11,86 +12,124 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	text-decoration: none;
 }
 @font-face {
-  font-family: "Ribbon";
-  src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/gh-pages/fonts/Ribbon_V2_2011.otf);
+	font-family: "ACMountain";
+	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/ACMountain.otf);
 }
 #header {
-  font-family: "Ribbon", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 60px;
+  font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 75px;
   text-align: center;
   color: #F5CB5C;
   background-color: #000000;
   padding: 30px 0;
 }
-#workBox {
+#workBox, #available-box, #Upload-box {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
-#tabs {
-	background-color: #3F3F3F;
-	display: block;
-	width: 100vw;
-	padding-top: 20px;
-	padding-bottom: 20px;
+/*nav bar*/
+@media screen and (max-width:600px)  {
+	#tabs {
+		background-color: #3F3F3F;
+		display: block;
+		width: 100vw;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	#tabs li{
+	  font-size: 25px;
+		font-weight: 200;
+		display: block;
+		text-align: center;
+		color: #FFFFFF;
+	}
+	#classAvailable {
+		margin: 5vh 2vw;
+	}
 }
-#tabs ul{
-	margin-left: 20vw;
-	margin-right: 20vw;
-}
-#tabs li{
-  font-size: 25px;
-	font-weight: 200;
-  padding: 0 6vw;
-	display: inline;
-	color: #FFFFFF;
+@media screen and (min-width:601px)  {
+	#tabs {
+		background-color: #3F3F3F;
+		display: inline-block;
+		width: 100vw;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	#nav {
+		display: table;
+		width: 100%;
+	}
+	#tabs {
+		display: table-cell;
+		text-align: center;
+	}
+	#tabs li{
+	  font-size: 25px;
+		font-weight: 200;
+	  padding: 0 5%;
+		display: inline;
+		color: #FFFFFF;
+	}
+	#classAvailable {
+		margin: 5vh 8vw;
+	}
 }
 #tabs li:hover{
 	color: #F5CB5C;
 }
-#tabs li:target{
-	color: #F4DA90;
-}
-#matchButton {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 17px;
-	font-weight: 200;
-  padding: 10px 20px;
-	border: 1px;
-	border-radius: 4px;
-}
-
-#exportButton {
+/*Buttons*/
+#matchButton, #exportButton, #submitButton, #txtFileUpload  {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 200;
   padding: 10px 20px;
-  margin-left: 10px;
   border: 1px;
   border-radius: 4px;
+	display: block;
+	margin: 10px auto 10px auto;
+}
+/*Match Component*/
+/*
+#data {
+	display: table;
+}
+*/
+#data {
+	display: table;
+	width: 75%;
+}
+#dataTable {
+	display: table-cell;
+}
+#dataTable td {
+	padding: ;
+	border-width: 1px;
+	border-spacing: none;
+}
+/*
+.tableDive #dataTable table td {
+
+}
+*/
+/*Available Component*/
+#topRow {
+	text-align: center;
+}
+/*Upload Component*/
+#uploadForm, #dvImportSegments {
+	width: 50%;
+	margin: 15px auto;
+	text-align: center;
+}
+#file-form {
+}
+#radio-buttons {
+}
+.fileupload {
+	display: block;
+	margin: 0 auto;
 }
 
-#submitButton {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 200;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: 1px;
-  border-radius: 4px;
-}
-
-#txtFileUpload {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 200;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: 1px;
-  border-radius: 4px;
-}
-
-
-
-
+/*?*/
 #calendar{
   border-style: solid;
   border-radius: 5px;

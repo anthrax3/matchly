@@ -33,22 +33,24 @@ var Match = React.createClass({
     }
     return(
         <div id='workBox'>
-          <div id='tabs'>
-            <ul>
-              <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
-              <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
-              <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
-            </ul>
+          <div id="nav">
+            <div id='tabs'>
+              <ul>
+                <li id="match" onClick={this.props.setWorkArea.bind(this,0)}>MATCH</li>
+                <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
+                <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
+              </ul>
+          </div>
           </div>
           <div id='workArea'>
             <div id='list-of-visitors'>
-              <h2>list of visitors</h2>
+
             </div>
             <div id='schedule'>
-              <h2>schedule</h2>
+
             </div>
             <button id='matchButton' onClick={this.match}>MATCH</button>
-            <button id='exportButton' onClick={this.exportToCSV}>Export data to CSV file</button>
+            <button id='exportButton' onClick={this.exportToCSV}>Export Data to CSV File</button>
           </div>
           <div id='data'>
             {data}
