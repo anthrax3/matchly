@@ -16,13 +16,12 @@ var Home = React.createClass({
   },
 
   exportCSV:function(matchData){
-    // var data = [["Minsk",100000], ["Riga",200000]];
-    console.log('export csv in home fires');
-    console.log(matchData, 'matchData');
-    window.exportData = function exportData() {
-        alasql("SELECT * INTO CSV('matchData.csv') FROM ?",[matchData]);
-    };
-    window.exportData();
+   var a = document.createElement('a');
+    a.href = 'data:application/csv;charset=utf-8,'+encodeURIComponent(matchData);
+    a.target = '_blank';
+    a.download = 'match-data.csv';
+    document.body.appendChild(a);
+    a.click();
   },
 
   setName:function(name){

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var availabilityProfile = require('./availability.js');
 var Promise = require("bluebird");
 var Rumble = require('./../../algorithm2.js');
+var csv=require('fast-csv');
 
 module.exports = {
   cookieCheck: function(req,res) {
@@ -35,8 +36,14 @@ module.exports = {
             return res.send(err);
           }
           AvailabiltyConstraint=data;
-          res.send(Rumble.rumble(VisitorData,HostData,AvailabiltyConstraint));
-          
+          var RumbleData = Rumble.rumble(VisitorData,HostData,AvailabiltyConstraint);
+          var csvStream = csv.writeToString(RumbleData, function(err, data){
+            console.log(data);
+            if(err){
+              res.send(err);
+            }
+            res.send(data);
+          });
         });
       });
     });
