@@ -193,7 +193,7 @@ var Available=React.createClass({
                 <input type='text' className='E3 sections' required ></input>
               </tr>
             </table>
-            <input id='submitButton' type='submit'></input>
+            <input id='updateButton' type='submit' value='Update'></input>
           </form>
         </div>
       </div>
