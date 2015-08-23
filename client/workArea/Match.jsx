@@ -1,5 +1,6 @@
 var React=require('react');
 var Visitor=require('./Visitors.jsx');
+var Loading=require('./Loading.jsx');
 var alasql=require('alasql');
 var db = new alasql.Database();
 var Match = React.createClass({
@@ -13,7 +14,7 @@ var Match = React.createClass({
         // console.log("data", data);
         // console.log(self, 'self');
         self.props.setMatchData(data);
-        
+
       }
     });
   },
@@ -23,7 +24,7 @@ var Match = React.createClass({
   },
 
   render:function(){
-    var data=[];
+    var data=[(<div><Loading /></div>)];
     if(this.props.matchData!==null){
       // console.log('if statement fires');
       // console.log(this.props.matchData.array,'matchData');
@@ -51,6 +52,8 @@ var Match = React.createClass({
             </div>
             <button id='matchButton' onClick={this.match}>MATCH</button>
             <button id='exportButton' onClick={this.exportToCSV}>Export Data to CSV File</button>
+          </div>
+          <div id="loading">
           </div>
           <div id='data'>
             {data}
