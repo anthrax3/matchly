@@ -13,7 +13,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 @font-face {
 	font-family: "ACMountain";
-	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/ACMountain.otf);
+	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/assets/fonts/ACMountain.otf);
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
