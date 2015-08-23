@@ -13,7 +13,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 @font-face {
 	font-family: "ACMountain";
-	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/assets/fonts/ACMountain.otf);
+	src: url(https://github.com/tsorensen23/blogWithUpVoting/tree/master/fonts/ACMountain.otf);
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
@@ -111,9 +111,23 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 */
 /*Available Component*/
+.sections {
+	  display: inline-block;
+	  width: 15%;
+}
+.row-title{
+  display: inline-block;
+}
 #topRow {
+}
+#topRowTitles {
 	text-align: center;
 }
+#columnTitle {
+	text-align: right;
+	padding-right: 50px;
+}
+
 /*Upload Component*/
 #uploadForm, #dvImportSegments {
 	width: 50%;
@@ -148,16 +162,9 @@ overflow:scroll;
 height:400px;
 }
 
-.row-title{
-  display: inline;
-}
+
 .table-row{
   display: block;
-}
-
-.sections{
-  display: inline-block;
-  width: 16.66%;
 }
 
 /*
