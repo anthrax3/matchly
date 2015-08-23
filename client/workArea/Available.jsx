@@ -155,19 +155,21 @@ var Available=React.createClass({
         <div id='classAvailable'>
           <form onSubmit={this.sendClassConstraints}>
             <table>
-              <tr>
                 <div id="topRow">
-                <h3 className='sections'></h3>
-                <h3 className='sections'>A</h3>
-                <h3 className='sections'>B</h3>
-                <h3 className='sections'>C</h3>
-                <h3 className='sections'>D</h3>
-                <h3 className='sections'>E</h3>
+                <tr>
+                  <div id="topRowTitles">
+                    <h3 className='sections'></h3>
+                    <h3 className='sections'>A</h3>
+                    <h3 className='sections'>B</h3>
+                    <h3 className='sections'>C</h3>
+                    <h3 className='sections'>D</h3>
+                    <h3 className='sections'>E</h3>
+                  </div>
+                </tr>
                 </div>
-              </tr>
               <br></br>
               <tr>
-                <h3 className='row-title sections'>Class 1</h3>
+                <h3 className='row-title sections' id="columnTitle">8:00 AM</h3>
                 <input type='text' className='A1 sections' required ></input>
                 <input type='text' className='B1 sections' required ></input>
                 <input type='text' className='C1 sections' required ></input>
@@ -176,7 +178,7 @@ var Available=React.createClass({
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title sections'>Class 2</h3>
+                <h3 className='row-title sections' id="columnTitle">10:00 AM</h3>
                 <input type='text' className='A2 sections' required ></input>
                 <input type='text' className='B2 sections' required ></input>
                 <input type='text' className='C2 sections' required></input>
@@ -185,7 +187,7 @@ var Available=React.createClass({
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title sections'>Class 3</h3>
+                <h3 className='row-title sections' id="columnTitle">11:45 AM</h3>
                 <input type='text' className='A3 sections' required ></input>
                 <input type='text' className='B3 sections' required ></input>
                 <input type='text' className='C3 sections' required ></input>
