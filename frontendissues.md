@@ -8,3 +8,4 @@
 - [ ] Style login page
 - [ ] Style register page
 - [ ] Match loading icon
+- [ ] Favicon
