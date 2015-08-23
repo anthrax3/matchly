@@ -9,5 +9,5 @@
 - [ ] Style register page
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
-- [ ] Available page needs reformatting (spacing)
 - [ ] Favicon
+- [x] Available page needs reformatting (spacing)
