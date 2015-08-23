@@ -36,7 +36,7 @@ var Login = React.createClass({
     return(
       <div id='loginContainer'>
         <div id='banner'>
-          <h1>Text text text</h1>
+          <h1>Welcome to Matchly! Please login</h1>
         </div>
         <div id='credentials'>
           <input id='userName' type='text' />

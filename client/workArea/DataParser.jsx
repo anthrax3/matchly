@@ -73,7 +73,7 @@ parseDataHost: function(dataObject){
         }
       }
     });
-
+    console.log('modifiedDataArray', modifiedDataArray);
     return modifiedDataArray;
   },
 

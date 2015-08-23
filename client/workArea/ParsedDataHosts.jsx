@@ -5,23 +5,23 @@ var ParsedDataHosts=React.createClass({
     console.log(this.props.data);
     return(
       <div>
-        <h3>Contact Information</h3>
-        <h3>First: {this.props.data.Contact.First}</h3>
-        <h3>Last: {this.props.data.Contact.Last}</h3>
-        <h3>Email: {this.props.data.Contact.Email}</h3>
-        <h3>Section: {this.props.data.Section}</h3>
-        <h2>Characteristics</h2>
-        <h3>Military: {this.props.data.Characteristics.Military[0]}</h3>
-        <h3>Country: {this.props.data.Characteristics.Country[0]}</h3>
-        <h3>Citizenship: {this.props.data.Characteristics.Citizenship[0]}</h3>
-        <h3>Undergrad: {this.props.data.Characteristics.Undergrad[0]}</h3>
-        <h3>Employer: {this.props.data.Characteristics.Employer[0]}</h3>
-        <h3>Industry: {this.props.data.Characteristics.Industry[0]}</h3>
-        <h3>City: {this.props.data.Characteristics.City[0]}</h3>
-        <h3>State: {this.props.data.Characteristics.State[0]}</h3>
+        <h3 className='host'>First: {this.props.data.Contact.First}</h3>
+        <h3 className='host'>Last: {this.props.data.Contact.Last}</h3>
+        <h3 className='host'>Email: {this.props.data.Contact.Email}</h3>
+        <h3 className='host'>Section: {this.props.data.Section}</h3>
+        <h2 className='host'>Characteristics</h2>
+        <h3 className='host'>Military: {this.props.data.Characteristics.Military}</h3>
+        <h3 className='host'>Country: {this.props.data.Characteristics.Country}</h3>
+        <h3 className='host'>Citizenship: {this.props.data.Characteristics.Citizenship}</h3>
+        <h3 className='host'>Undergrad: {this.props.data.Characteristics.Undergrad}</h3>
+        <h3 className='host'>Employer: {this.props.data.Characteristics.Employer}</h3>
+        <h3 className='host'>Industry: {this.props.data.Characteristics.Industry}</h3>
+        <h3 className='host'>City: {this.props.data.Characteristics.City}</h3>
+        <h3 className='host'>State: {this.props.data.Characteristics.State}</h3>
       </div>
     );
   }
 });
+
 
 module.exports=ParsedDataHosts;

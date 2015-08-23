@@ -120,6 +120,10 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	margin: 15px auto;
 	text-align: center;
 }
+
+.host{
+  display: inline-block;
+}
 #file-form {
 }
 #radio-buttons {
