@@ -8,6 +8,7 @@
     - See parseddatavisitors.jsx
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
+    - css:enabled replace button content with gif & disabled (when data rendered) revert to original content
 - [ ] Favicon
 
 # Issues Completed
@@ -18,4 +19,4 @@
 - [x] Inputs
     - Available
     - Password Inputs on Register? Login?
-- 
+-

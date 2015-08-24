@@ -1,6 +1,7 @@
-/*id's: workBox, tabs, workArea, , list-of-visitors, schedule*/
-/*created id's for: match, available, upload, matchButton, data*/
+/*Style Guide*/
 /*Yellow: #F5CB5C*/
+
+/*remove all preset styles*/
 html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	padding: 0;
 	border: 0;
@@ -11,10 +12,12 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	list-style: none;
 	text-decoration: none;
 }
+/*create logo font ACMountain*/
 @font-face {
 	font-family: "ACMountain";
 	src: url(assets/fonts/ACMountain.otf);
 }
+/*Logo Style*/
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 75px;
@@ -23,10 +26,11 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   background-color: #000000;
   padding: 30px 0;
 }
+/*Set everything to Helvetica Neue*/
 #workBox, #available-box, #Upload-box, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
-/*nav bar*/
+/*nav bar & available page padding for mobile*/
 @media screen and (max-width:600px)  {
 	#tabs {
 		background-color: #3F3F3F;
@@ -48,6 +52,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 		padding-right: 5px;
 	}
 }
+/*nav bar & available page padding for desktop*/
 @media screen and (min-width:601px)  {
 	#tabs {
 		background-color: #3F3F3F;
@@ -78,10 +83,11 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 		padding-right: 50px;
 	}
 }
+/*Yellow coloring for link hover*/
 #tabs li:hover{
 	color: #F5CB5C;
 }
-/*Buttons*/
+/*Buttons within app*/
 #matchButton, #exportButton, #submitButton, #txtFileUpload, #updateButton {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
@@ -92,6 +98,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	display: block;
 	margin: 10px auto 10px auto;
 }
+/*Buttons before login*/
 #submitRegister, #loginButtons #submit, #loginButtons #register {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
@@ -131,11 +138,17 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 
 /*Match Component*/
+/*
 #loading {
 	width: 50px;
 	display: inline-block;
 	margin: 0 auto;
 }
+
+#matchButton:enabled {
+	content: url(assets/loading.gif);
+}
+*/
 
 /*Available Component*/
 .sections {
@@ -160,20 +173,17 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	margin: 15px auto;
 	text-align: center;
 }
-
 .host{
   display: inline-block;
 }
 #file-form {
-}
-#radio-buttons {
 }
 .fileupload {
 	display: block;
 	margin: 0 auto;
 }
 
-/*?*/
+/*legacy code ????*/
 #calendar{
   border-style: solid;
   border-radius: 5px;
@@ -187,113 +197,6 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 overflow:scroll;
 height:400px;
 }
-
-
 .table-row{
   display: block;
 }
-
-/*
-#loginBox {
-  position: relative;
-  top: 50%;
-  margin-top: 28%;
-  padding-left: 400px;
-}
-h1 {
-  padding-left: 34px;
-}
-#submitButtonHolder {
-  padding-bottom: 10px;
-}
-
-#submitButton {
-  width: 62px;
-}
-
-#registerButton {
-  width: 62px;
-}
-
-h1{
-  padding-bottom: 20px;
-}
-
-#loginPassword {
-  padding-bottom: 10px;
-}
-
-#register {
-  background: #777777;
-  padding: 10px;
-  position: relative;
-  top: 50%;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 30%;
-}
-
-#firstName {
-  height: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-#userName {
-  margin-bottom: 10px;
-  margin-right: 10px;
-
-}
-
-#passwordentry {
-  display: block;
-  margin-bottom: 10px;
-}
-
-#confirmPassword {
-  margin-bottom: 10px;
-}
-
-#registerSubmitButton{
-  margin-right: 10px;
-  float: right;
-}
-
-#upvote {
-  display: block;
-  width: 53px;
-}
-
-#downvote {
-  width: 53px;
-  margin-bottom: 4px;
-}
-#votes{
-  display: inline-block;
-  margin-right: 70px;
-}
-
-#postBody {
-  display: inline-block;
-}
-
-#userNameParagraph {
-  margin-bottom: -28px;
-}
-
-#userVotes {
-  padding-bottom: 20px;
-}
-
-#blogPost {
-  margin-right: 15px;
-  width: 146px;
-}
-
-#blogPostContainer {
-  border-radius: 5px;
-  border-style: solid;
-  margin: 5px 5px 5px 5px;
-}*/
