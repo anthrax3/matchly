@@ -1,6 +1,12 @@
 # Issues For Front End
 
-- [ ] Format visitor data
+* Figure out the git merge conflicts, pull from upstream master & commit your new changes
+
+- [ ] Fix Register/Login page from index.html & login.html
+- [ ] Inputs
+    - Available
+    - Password Inputs on Register? Login?
+- [ ] Format Visitor Data (visitor.jsx from Match.jsx)
     - look up react inline styles
 - [ ] Format loaded data on upload page
     - See parseddatahosts.jsx
