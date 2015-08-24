@@ -13,7 +13,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 @font-face {
 	font-family: "ACMountain";
-	src: url(https://github.com/patriciarealini/blogWithUpVoting/blob/master/fonts/ACMountain.otf);
+	src: url(https://github.com/tsorensen23/blogWithUpVoting/tree/master/fonts/ACMountain.otf);
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
@@ -44,6 +44,8 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	}
 	#classAvailable {
 		margin: 5vh 2vw;
+	}#columnTitle {
+		padding-right: 5px;
 	}
 }
 @media screen and (min-width:601px)  {
@@ -72,12 +74,15 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	#classAvailable {
 		margin: 5vh 8vw;
 	}
+	#columnTitle {
+		padding-right: 50px;
+	}
 }
 #tabs li:hover{
 	color: #F5CB5C;
 }
 /*Buttons*/
-#matchButton, #exportButton, #submitButton, #txtFileUpload  {
+#matchButton, #exportButton, #submitButton, #txtFileUpload, #updateButton {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 200;
@@ -111,9 +116,22 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 */
 /*Available Component*/
+.sections {
+	  display: inline-block;
+	  width: 15%;
+}
+.row-title{
+  display: inline-block;
+}
 #topRow {
+}
+#topRowTitles {
 	text-align: center;
 }
+#columnTitle {
+	text-align: right;
+}
+
 /*Upload Component*/
 #uploadForm, #dvImportSegments {
 	width: 50%;
@@ -148,16 +166,9 @@ overflow:scroll;
 height:400px;
 }
 
-.row-title{
-  display: inline;
-}
+
 .table-row{
   display: block;
-}
-
-.sections{
-  display: inline-block;
-  width: 16.66%;
 }
 
 /*
