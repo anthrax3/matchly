@@ -20,7 +20,7 @@ var LoginRedirect = React.createClass({
   }
 });
 
-//these are the routes, they determine which component will be 
+//these are the routes, they determine which component will be
 //loaded for each url
 var routes = (
   <Route handler={App}>
@@ -42,7 +42,7 @@ var App = React.createClass({
         <h2>Hello {this.state.name}</h2>
         <RouteHandler/>
       </div>
-    )
+    );
   }
 });
 
