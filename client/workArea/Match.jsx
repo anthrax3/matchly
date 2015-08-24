@@ -41,7 +41,7 @@ var Match = React.createClass({
                 <li id="available" onClick={this.props.setWorkArea.bind(this,1)}>AVAILABLE</li>
                 <li id="upload" onClick={this.props.setWorkArea.bind(this,2)}>UPLOAD</li>
               </ul>
-          </div>
+            </div>
           </div>
           <div id='workArea'>
             <div id='list-of-visitors'>
