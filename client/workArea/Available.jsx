@@ -170,29 +170,29 @@ var Available=React.createClass({
               <br></br>
               <tr>
                 <h3 className='row-title sections'>8:00 AM</h3>
-                <input type='text' className='A1 sections' required defaultValue={this.props.availableData.A1.availableSpots} ></input>
-                <input type='text' className='B1 sections' required defaultValue={this.props.availableData.B1.availableSpots} ></input>
-                <input type='text' className='C1 sections' required defaultValue={this.props.availableData.C1.availableSpots} ></input>
-                <input type='text' className='D1 sections' required defaultValue={this.props.availableData.D1.availableSpots} ></input>
-                <input type='text' className='E1 sections' required defaultValue={this.props.availableData.E1.availableSpots} ></input>
+                <input type='number' className='A1 sections' required defaultValue={this.props.availableData.A1.availableSpots} ></input>
+                <input type='number' className='B1 sections' required defaultValue={this.props.availableData.B1.availableSpots} ></input>
+                <input type='number' className='C1 sections' required defaultValue={this.props.availableData.C1.availableSpots} ></input>
+                <input type='number' className='D1 sections' required defaultValue={this.props.availableData.D1.availableSpots} ></input>
+                <input type='number' className='E1 sections' required defaultValue={this.props.availableData.E1.availableSpots} ></input>
               </tr>
               <br></br>
               <tr>
                 <h3 className='row-title sections'>10:00 AM</h3>
-                <input type='text' className='A2 sections' required defaultValue={this.props.availableData.A2.availableSpots} ></input>
-                <input type='text' className='B2 sections' required defaultValue={this.props.availableData.B2.availableSpots} ></input>
-                <input type='text' className='C2 sections' required defaultValue={this.props.availableData.C2.availableSpots} ></input>
-                <input type='text' className='D2 sections' required defaultValue={this.props.availableData.D2.availableSpots} ></input>
-                <input type='text' className='E2 sections' required defaultValue={this.props.availableData.E2.availableSpots} ></input>
+                <input type='number' className='A2 sections' required defaultValue={this.props.availableData.A2.availableSpots} ></input>
+                <input type='number' className='B2 sections' required defaultValue={this.props.availableData.B2.availableSpots} ></input>
+                <input type='number' className='C2 sections' required defaultValue={this.props.availableData.C2.availableSpots} ></input>
+                <input type='number' className='D2 sections' required defaultValue={this.props.availableData.D2.availableSpots} ></input>
+                <input type='number' className='E2 sections' required defaultValue={this.props.availableData.E2.availableSpots} ></input>
               </tr>
               <br></br>
               <tr>
                 <h3 className='row-title sections'>10:00 AM</h3>
-                <input type='text' className='A3 sections' required defaultValue={this.props.availableData.A3.availableSpots} ></input>
-                <input type='text' className='B3 sections' required defaultValue={this.props.availableData.B3.availableSpots} ></input>
-                <input type='text' className='C3 sections' required defaultValue={this.props.availableData.C3.availableSpots} ></input>
-                <input type='text' className='D3 sections' required defaultValue={this.props.availableData.D3.availableSpots} ></input>
-                <input type='text' className='E3 sections' required defaultValue={this.props.availableData.E3.availableSpots} ></input>
+                <input type='number' className='A3 sections' required defaultValue={this.props.availableData.A3.availableSpots} ></input>
+                <input type='number' className='B3 sections' required defaultValue={this.props.availableData.B3.availableSpots} ></input>
+                <input type='number' className='C3 sections' required defaultValue={this.props.availableData.C3.availableSpots} ></input>
+                <input type='number' className='D3 sections' required defaultValue={this.props.availableData.D3.availableSpots} ></input>
+                <input type='number' className='E3 sections' required defaultValue={this.props.availableData.E3.availableSpots} ></input>
               </tr>
             </table>
             <input id='updateButton' type='submit' value='Update'></input>
