@@ -7,6 +7,7 @@ var availabilityProfile = require('./availability.js');
 var Promise = require("bluebird");
 var Rumble = require('./../../algorithm2.js');
 var csv=require('fast-csv');
+var Hat = require('hat');
 
 module.exports = {
   cookieCheck: function(req,res) {
@@ -14,6 +15,67 @@ module.exports = {
     UserProfile.findOne({'matchlycookie': cookie}, function(err, data) {
         // console.log(data);
         res.send(data);
+    });
+  },
+  getAvailableData:function(req, res) {
+    availabilityProfile.find({},function(err, data){
+      if(err) {
+        res.send(err);
+      }
+      res.send(data);
+    });
+  },
+
+  loginHTML:function(req,res) {
+    res.sendFile(__dirname + '/../../login.html');
+  },
+
+  authorizationCheck: function(req,res,next) {
+    // console.log(req);
+    if(!req.cookies) {
+      return res.redirect('/login.html');
+    }
+    
+    if(!req.cookies.matchlycookie) {
+      return res.redirect('/login.html');
+    }
+
+    var cookie=req.cookies.matchlycookie;
+    UserProfile.findOne({'matchlycookie': cookie}, function(err, data) {
+        if(err){
+          return res.send(err);
+        }
+        else if(data===null) {
+         return res.redirect('/login.html'); 
+        }
+        // res.send(data);
+        next();
+    });
+    // console.log(cookie,'matchlycookie');
+  },
+
+  checkLogin: function(req, res, next) {
+    console.log(req.body)
+    var hash = req.body.password;
+    UserProfile.findOne({username: req.body.username}, function(err, data) {
+      if(err) {
+        return next(err);
+      }
+      // console.log('data', data);
+      var dbhash = data.password;
+      var compare = bcrypt.compareSync(hash, dbhash); // true when using correct password
+      if(!compare) {
+        return next('compare failed');
+      }
+      var hatNumber = Hat();
+      data.matchlycookie=hatNumber;
+      data.save(function(err){
+        if(err) {
+          return next(err);
+        }
+        res.cookie('matchlycookie',hatNumber);
+        res.send();
+      });
     });
   },
 
@@ -54,8 +116,7 @@ module.exports = {
   },
 
   availability:function(req,res) {
-
-    availabilityProfile.create(req.body, function(err, data) {
+    availabilityProfile.update(req.body, function(err, data) {
       if(err) {
         return res.send(err);
       }
@@ -64,24 +125,9 @@ module.exports = {
     });
   },
 
-  checkLogin: function(req, res) {
-    var hash = req.body.password;
-    UserProfile.findOne({username: req.body.username}, function(err, data) {
-      var dbhash = data[0].password;
-      var compare = bcrypt.compareSync(hash, dbhash); // true when using correct password
-      if(compare) {
-         if(req.cookies.matchlycookie===underfined){
-          //set cookie
-         }
-      }
-      if(err) {
-        return res.send(err);
-      }
-      res.send(data);
-    });
-  },
   submithosts: function(req, res) {
-    console.log(req.body);
+    HostProfile.find({}).remove().exec();
+    // console.log(req.body);
     req.body.forEach(function(element){
       HostProfile.create(element, function(err, data) {
         if(err) {
@@ -94,7 +140,8 @@ module.exports = {
   },
 
   submitvisitors: function(req,res) {
-    console.log(req.body);
+    VisitorProfile.find({}).remove().exec();
+    // console.log(req.body);
     req.body.forEach(function(element){
       VisitorProfile.create(element, function(err, data) {
         if(err) {
@@ -103,7 +150,6 @@ module.exports = {
         res.send(data);
       });
     });
-    
   },
 
   registerUser: function(req, res) {
@@ -118,22 +164,5 @@ module.exports = {
       }
       res.send(data);
     });
-    // bcrypt.compareSync("bacon", hash); // true
-    // bcrypt.compareSync("veggies", hash); // false
-    
   },
-
-	
-
- //  getBlogPosts: function(req, res) {
-	// 	BlogPost.find({}, function(err, data) {
-	// 		if(err) {
-	// 			return res.send(err);
-	// 		}
-	// 		res.send(data);
-	// 	});
-	// },
-
-
-
 };

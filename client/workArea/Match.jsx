@@ -1,7 +1,6 @@
 var React=require('react');
 var Visitor=require('./Visitors.jsx');
-var alasql=require('alasql');
-var db = new alasql.Database();
+
 var Match = React.createClass({
   match:function(){
     console.log(this.props,'props');

@@ -9,8 +9,7 @@ var Login = React.createClass({
     var password=$('#password').val();
     var profileObject={
       username: userName,
-      password: password,
-      cookies: hatNumber
+      password: password
     };
     console.log(profileObject,"profileObject");
     $.ajax({
@@ -44,12 +43,6 @@ var Login = React.createClass({
           <button id='submit' type='submit' onClick={this.checkLogin}>Login</button>
           <button id='register' onClick={this.register}>Register</button>
         </div>    
-        <div id='tabs'>
-          <p className='tabs'>about us</p>
-          <p className='tabs'>subscribe</p>
-          <p className='tabs'>contact us</p>
-          <p className='tabs'>careers</p>
-        </div>  
         </div>
     );
   }
