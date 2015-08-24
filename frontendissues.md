@@ -5,8 +5,8 @@
 - [ ] Format loaded data on upload page
     - See parseddatahosts.jsx
     - See parseddatavisitors.jsx
-- [ ] Style login page
-    - turn login into a table 
+- [x] Style login page
+    - turn login into a table
 - [ ] Style register page
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
