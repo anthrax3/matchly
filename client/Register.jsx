@@ -37,31 +37,49 @@ handleRegister:function(){
            } else {
             window.location='/#/';
            }
-          }.bind(this)      
+          }.bind(this)
         });
     }
 },
 
 render: function(){
   return(
-    <div id='registerBox'>
-      <div id='registerInput'>
-        <h3>School Registration Code</h3>
-        <input id='schoolCode' type='text' required />
-        <h3>First Name</h3>
-        <input id='firstName' type='text' />
-        <h3>Last Name</h3>
-        <input id='lastName' type='text' />
-        <h3>email address</h3>
-        <input id='emailAddress' type='text'/>
-        <h3>Username</h3>
-        <input id='username' type='text' />
-        <h3>Password</h3>
-        <input id='password' type='text' />
-        <h3>Confrim password</h3>
-        <input id='confirmPassword' type='text' />
-        <br></br>
-        <button id='submitRegister' type='submit' onClick={this.handleRegister}>Submit</button>
+    <div>
+      <h1 id="header">MATCHLY</h1>
+      <div id="tabs">
+        <h4>Welcome! Please register...</h4>
+      </div>
+      <div id="registerBox">
+          <div id='registerInput'>
+              <table>
+                <tr>
+                  <h3>School Registration Code: <input id='schoolCode' type='text' required /></h3>
+                </tr>
+                <tr>
+                  <h3>First Name: <input id='firstName' type='text' /></h3>
+                </tr>
+                <tr>
+                  <h3>Last Name: <input id='lastName' type='text' /></h3>
+                </tr>
+                <tr>
+                  <h3>Email Address: <input id='emailAddress' type='email'/></h3>
+                </tr>
+                <tr>
+                  <h3>Username: <input id='username' type='text' /></h3>
+                </tr>
+                <tr>
+                  <h3>Password: <input id='password' type='password' /></h3>
+                </tr>
+                <tr>
+                  <h3>Confirm Password: <input id='confirmPassword' type='text' /></h3>
+                </tr>
+              </table>
+              <table>
+                <tr>
+                  <button id='submitRegister' type='submit' onClick={this.handleRegister}>Submit</button>
+                </tr>
+              </table>
+          </div>
       </div>
     </div>
   );
