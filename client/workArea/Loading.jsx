@@ -6,7 +6,7 @@ var Loading=React.createClass({
     return(
       <div className='loading'>
         <div id="loading">
-          <img src="http://spiffygif.com/?color=000&length=10&radius=10" alt="Match Loading..." />
+          <img src="https://github.com/tsorensen23/blogWithUpVoting/blob/master/assets/loading.gif" alt="Match Loading..." />
         </div>
       </div>
     );
