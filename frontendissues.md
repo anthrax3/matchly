@@ -5,9 +5,9 @@
 - [ ] Format loaded data on upload page
     - See parseddatahosts.jsx
     - See parseddatavisitors.jsx
-- [x] Style login page
-- [x] Style register page
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
 - [ ] Favicon
 - [x] Available page needs reformatting (spacing)
+- [x] Style login page
+- [x] Style register page
