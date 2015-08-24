@@ -8,6 +8,9 @@
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
 - [ ] Favicon
+
+# Issues Completed
+
 - [x] Available page needs reformatting (spacing)
 - [x] Style login page
 - [x] Style register page
