@@ -13,7 +13,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 @font-face {
 	font-family: "ACMountain";
-	src: url(https://github.com/tsorensen23/blogWithUpVoting/tree/master/fonts/ACMountain.otf);
+	src: url(assets/fonts/ACMountain.otf);
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
@@ -23,7 +23,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   background-color: #000000;
   padding: 30px 0;
 }
-#workBox, #available-box, #Upload-box {
+#workBox, #available-box, #Upload-box, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 /*nav bar*/
@@ -92,29 +92,38 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	display: block;
 	margin: 10px auto 10px auto;
 }
-/*Match Component*/
-/*
-#data {
-	display: table;
+/*Login Components*/
+#tabs h4 {
+	font-size: 25px;
+	font-weight: 200;
+	text-align: center;
+	color: #FFFFFF;
+	letter-spacing: 0.075em;
 }
-*/
-#data {
-	display: table;
-	width: 75%;
+#credentials, #registerInput {
+	display: block;
+	padding-top: 30px;
 }
-#dataTable {
-	display: table-cell;
-}
-#dataTable td {
-	padding: ;
-	border-width: 1px;
-	border-spacing: none;
-}
-/*
-.tableDive #dataTable table td {
 
+#loginContainer, #registerBox {
+	display: table;
 }
-*/
+#credentials, #registerInput {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 40vw;
+	padding-right: 40vw;
+}
+
+/*Match Component*/
+#loading {
+	width: 50px;
+	display: inline-block;
+	margin: 0 auto;
+}
+
 /*Available Component*/
 .sections {
 	  display: inline-block;
