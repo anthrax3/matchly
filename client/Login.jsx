@@ -22,7 +22,7 @@ var Login = React.createClass({
             console.log(data, "data");
             window.location='/#/home';
 
-          }.bind(this)      
+          }.bind(this)
         });
   },
 
@@ -34,23 +34,20 @@ var Login = React.createClass({
   render: function(){
 
     return(
-      <div id='loginContainer'>
-        <div id='banner'>
-          <h1>Welcome to Matchly! Please login</h1>
+      <div>
+        <h1 id="header">MATCHLY</h1>
+        <div id="tabs">
+          <h4>Welcome! Please log in...</h4>
         </div>
-        <div id='credentials'>
-          <input id='userName' type='text' />
-          <input id='password' type='password' />
-          <button id='submit' type='submit' onClick={this.checkLogin}>Login</button>
-          <button id='register' onClick={this.register}>Register</button>
-        </div>    
-        <div id='tabs'>
-          <p className='tabs'>about us</p>
-          <p className='tabs'>subscribe</p>
-          <p className='tabs'>contact us</p>
-          <p className='tabs'>careers</p>
-        </div>  
-        </div>
+                    <div id='loginContainer'>
+                      <div id='credentials'>
+                        <input id='userName' type='text' />
+                        <input id='password' type='password' />
+                        <button id='submit' type='submit' onClick={this.checkLogin}>Login</button>
+                        <button id='register' onClick={this.register}>Register</button>
+                      </div>
+                    </div>
+      </div>
     );
   }
 });

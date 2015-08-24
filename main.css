@@ -13,7 +13,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 }
 @font-face {
 	font-family: "ACMountain";
-	src: url(https://github.com/tsorensen23/blogWithUpVoting/tree/master/fonts/ACMountain.otf);
+	src: url(https://github.com/tsorensen23/blogWithUpVoting/blob/master/assets/fonts/ACMountain.otf);
 }
 #header {
   font-family: "ACMountain", "Helvetica Neue", Helvetica, sans-serif;
@@ -23,8 +23,14 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   background-color: #000000;
   padding: 30px 0;
 }
-#workBox, #available-box, #Upload-box {
+#workBox, #available-box, #Upload-box, h4 {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+#tabs h4 {
+	font-size: 25px;
+	font-weight: 200;
+	text-align: center;
+	color: #FFFFFF;
 }
 /*nav bar*/
 @media screen and (max-width:600px)  {
