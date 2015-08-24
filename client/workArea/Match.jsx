@@ -24,7 +24,7 @@ var Match = React.createClass({
   },
 
   render:function(){
-    var data=[(<div><Loading /></div>)];
+    var data=[];
     if(this.props.matchData!==null){
       // console.log('if statement fires');
       // console.log(this.props.matchData.array,'matchData');
