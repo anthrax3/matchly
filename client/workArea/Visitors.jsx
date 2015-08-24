@@ -1,5 +1,6 @@
 var React=require('react');
 
+
 var Visitor=React.createClass({
   render:function(){
   // console.log(this.props.visitor,'visitor');
