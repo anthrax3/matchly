@@ -62,13 +62,13 @@ render: function(){
                   <h3>Last Name: <input id='lastName' type='text' /></h3>
                 </tr>
                 <tr>
-                  <h3>Email Address: <input id='emailAddress' type='text'/></h3>
+                  <h3>Email Address: <input id='emailAddress' type='email'/></h3>
                 </tr>
                 <tr>
                   <h3>Username: <input id='username' type='text' /></h3>
                 </tr>
                 <tr>
-                  <h3>Password: <input id='password' type='text' /></h3>
+                  <h3>Password: <input id='password' type='password' /></h3>
                 </tr>
                 <tr>
                   <h3>Confirm Password: <input id='confirmPassword' type='text' /></h3>
