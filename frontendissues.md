@@ -6,8 +6,7 @@
     - See parseddatahosts.jsx
     - See parseddatavisitors.jsx
 - [x] Style login page
-    - turn login into a table
-- [ ] Style register page
+- [x] Style register page
 - [ ] Match loading icon
     - render gif if match button triggered & data not ready
 - [ ] Favicon

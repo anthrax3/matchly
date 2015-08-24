@@ -100,15 +100,15 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	color: #FFFFFF;
 	letter-spacing: 0.075em;
 }
-#credentials {
+#credentials, #registerInput {
 	display: block;
 	padding-top: 30px;
 }
 
-#loginContainer {
+#loginContainer, #registerBox {
 	display: table;
 }
-#credentials {
+#credentials, #registerInput {
 	display: block;
 	width: 50%;
 	margin-left: auto;

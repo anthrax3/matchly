@@ -37,7 +37,7 @@ var Login = React.createClass({
       <div>
         <h1 id="header">MATCHLY</h1>
         <div id="tabs">
-          <h4>Welcome! Please log in ...</h4>
+          <h4>Welcome! Please log in...</h4>
         </div>
                     <div id='loginContainer'>
                       <div id='credentials'>
