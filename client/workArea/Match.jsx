@@ -1,12 +1,12 @@
 var React=require('react');
 var Visitor=require('./Visitors.jsx');
 var Loading=require('./Loading.jsx');
-var alasql=require('alasql');
-var db = new alasql.Database();
+
 var Match = React.createClass({
   match:function(){
-    console.log(this.props,'props');
+    // console.log(this.props,'props');
     var self=this;
+    // this.props
     $.ajax({
       method: 'GET',
       url: '/match',

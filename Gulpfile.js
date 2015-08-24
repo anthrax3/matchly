@@ -5,12 +5,17 @@ var watchify = require('watchify');
 var reactify = require('reactify');
 var nodemon = require('gulp-nodemon');
 
-gulp.task('browserify', scripts)
+gulp.task('browserify', compileScripts)
     .task('serve', serve);
 
-function scripts() {
+function compileScripts() {
+  scripts('./main.js','bundle.js');
+  scripts('./login.jsx','login-bundle.js');
+}
+
+function scripts(input, output) {
   var bundler = browserify({
-    entries: ['./main.js'],
+    entries: [input],
     transform: [reactify], // We want to convert JSX to normal javascript
     debug: true,
     cache: {},
@@ -27,7 +32,7 @@ function scripts() {
       .on('error', function(err) {
         console.log('Error with compiling components', err.message);
       })
-      .pipe(source('bundle.js'))
+      .pipe(source(output))
       .pipe(gulp.dest('./build/'));
       console.log('Updated!', (Date.now() - updateStart) + 'ms');
     })
@@ -36,7 +41,7 @@ function scripts() {
     .on('error', function(err) {
       console.log('Error with compiling components', err.message);
     })
-    .pipe(source('bundle.js'))
+    .pipe(source(output))
     .pipe(gulp.dest('./build/'));
 }
 

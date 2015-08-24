@@ -33,6 +33,7 @@ handleRegister:function(){
           success: function(data) {
             console.log("data", data);
            if(data.errors !== undefined) {
+            console.log(data);
             alert('registration failed, please try again');
            } else {
             window.location='/#/';

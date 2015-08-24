@@ -1,4 +1,4 @@
-React=require('react');
+var React=require('react');
 
 var Available=React.createClass({
   sendClassConstraints:function() {
@@ -169,30 +169,30 @@ var Available=React.createClass({
                 </div>
               <br></br>
               <tr>
-                <h3 className='row-title sections' id="columnTitle">8:00 AM</h3>
-                <input type='text' className='A1 sections' required ></input>
-                <input type='text' className='B1 sections' required ></input>
-                <input type='text' className='C1 sections' required ></input>
-                <input type='text' className='D1 sections' required ></input>
-                <input type='text' className='E1 sections' required ></input>
+                <h3 className='row-title sections'>8:00 AM</h3>
+                <input type='text' className='A1 sections' required defaultValue={this.props.availableData.A1.availableSpots} ></input>
+                <input type='text' className='B1 sections' required defaultValue={this.props.availableData.B1.availableSpots} ></input>
+                <input type='text' className='C1 sections' required defaultValue={this.props.availableData.C1.availableSpots} ></input>
+                <input type='text' className='D1 sections' required defaultValue={this.props.availableData.D1.availableSpots} ></input>
+                <input type='text' className='E1 sections' required defaultValue={this.props.availableData.E1.availableSpots} ></input>
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title sections' id="columnTitle">10:00 AM</h3>
-                <input type='text' className='A2 sections' required ></input>
-                <input type='text' className='B2 sections' required ></input>
-                <input type='text' className='C2 sections' required></input>
-                <input type='text' className='D2 sections' required></input>
-                <input type='text' className='E2 sections' required ></input>
+                <h3 className='row-title sections'>10:00 AM</h3>
+                <input type='text' className='A2 sections' required defaultValue={this.props.availableData.A2.availableSpots} ></input>
+                <input type='text' className='B2 sections' required defaultValue={this.props.availableData.B2.availableSpots} ></input>
+                <input type='text' className='C2 sections' required defaultValue={this.props.availableData.C2.availableSpots} ></input>
+                <input type='text' className='D2 sections' required defaultValue={this.props.availableData.D2.availableSpots} ></input>
+                <input type='text' className='E2 sections' required defaultValue={this.props.availableData.E2.availableSpots} ></input>
               </tr>
               <br></br>
               <tr>
-                <h3 className='row-title sections' id="columnTitle">11:45 AM</h3>
-                <input type='text' className='A3 sections' required ></input>
-                <input type='text' className='B3 sections' required ></input>
-                <input type='text' className='C3 sections' required ></input>
-                <input type='text' className='D3 sections' required ></input>
-                <input type='text' className='E3 sections' required ></input>
+                <h3 className='row-title sections'>10:00 AM</h3>
+                <input type='text' className='A3 sections' required defaultValue={this.props.availableData.A3.availableSpots} ></input>
+                <input type='text' className='B3 sections' required defaultValue={this.props.availableData.B3.availableSpots} ></input>
+                <input type='text' className='C3 sections' required defaultValue={this.props.availableData.C3.availableSpots} ></input>
+                <input type='text' className='D3 sections' required defaultValue={this.props.availableData.D3.availableSpots} ></input>
+                <input type='text' className='E3 sections' required defaultValue={this.props.availableData.E3.availableSpots} ></input>
               </tr>
             </table>
             <input id='updateButton' type='submit' value='Update'></input>

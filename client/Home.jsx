@@ -11,12 +11,32 @@ var Home = React.createClass({
       name:null,
       indexNumber: 0,
       workNumber:0,
-      matchData:null
+      matchData:null,
+      availableData: null,
+      loadingIcon: false
     };
+  },
+  componentDidMount:function() {
+    this.getAvailableData();
+  },
+
+  setLoadingIcon:function(word) {
+    this.setState({loadingIcon:word});
+  },
+
+  getAvailableData:function() {
+    var self=this;
+    $.ajax({
+      method: 'GET',
+      url: '/getAvailableData',
+      success: function(data) {
+        console.log("getAvailableData", data[0]);
+        self.setState({availableData:data[0]});
+      }
+    });
   },
 
   exportCSV:function(matchData){
-    console.log(matchData);
    var a = document.createElement('a');
     a.href = 'data:application/csv;charset=utf-8,'+encodeURIComponent(matchData);
     a.target = '_blank';
@@ -41,7 +61,8 @@ var Home = React.createClass({
   },
 
   render: function(){
-  console.log('matchData',this.state.matchData);
+    console.log(this.state.availableData,'availableData');
+  // console.log('matchData',this.state.matchData);
   var self=this;
   var workArea=<div></div>
   var workNumber=this.state.workNumber;
@@ -51,11 +72,13 @@ var Home = React.createClass({
     indexNumber={this.state.indexNumber}
     setMatchData={this.setMatchData}
     exportCSV={this.exportCSV}
-    matchData={this.state.matchData}/>;
+    matchData={this.state.matchData}
+    loadingIcon={this.setLoadingIcon} />;
   } else if(workNumber===1) {
     workArea=<Available workNumber={this.state.workNumber}
     setWorkArea={this.setWorkArea}
-    indexNumber={this.state.indexNumber} />;
+    indexNumber={this.state.indexNumber} 
+    availableData={this.state.availableData}/>;
   } else if(workNumber===2) {
     workArea=<Upload workNumber={this.state.workNumber}
     setWorkArea={this.setWorkArea}

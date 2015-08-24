@@ -9,8 +9,7 @@ var Login = React.createClass({
     var password=$('#password').val();
     var profileObject={
       username: userName,
-      password: password,
-      cookies: hatNumber
+      password: password
     };
     console.log(profileObject,"profileObject");
     $.ajax({
@@ -32,7 +31,6 @@ var Login = React.createClass({
   },
 
   render: function(){
-
     return(
       <div>
         <h1 id="header">MATCHLY</h1>
