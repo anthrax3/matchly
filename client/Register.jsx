@@ -77,7 +77,7 @@ render: function(){
               </table>
               <table>
                 <tr>
-                  <button id='submitRegister' type='submit' onClick={this.handleRegister}>Submit</button>
+                  <button id='submitRegister' type='submit' onClick={this.handleRegister}>Register</button>
                 </tr>
               </table>
           </div>
