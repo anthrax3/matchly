@@ -12,11 +12,16 @@ var Home = React.createClass({
       indexNumber: 0,
       workNumber:0,
       matchData:null,
-      availableData: null
+      availableData: null,
+      loadingIcon: false
     };
   },
   componentDidMount:function() {
     this.getAvailableData();
+  },
+
+  setLoadingIcon:function(word) {
+    this.setState({loadingIcon:word});
   },
 
   getAvailableData:function() {
@@ -67,7 +72,8 @@ var Home = React.createClass({
     indexNumber={this.state.indexNumber}
     setMatchData={this.setMatchData}
     exportCSV={this.exportCSV}
-    matchData={this.state.matchData}/>;
+    matchData={this.state.matchData}
+    loadingIcon={this.setLoadingIcon} />;
   } else if(workNumber===1) {
     workArea=<Available workNumber={this.state.workNumber}
     setWorkArea={this.setWorkArea}

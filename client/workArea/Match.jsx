@@ -1,10 +1,12 @@
 var React=require('react');
 var Visitor=require('./Visitors.jsx');
+var Loading=require('./Loading.jsx');
 
 var Match = React.createClass({
   match:function(){
-    console.log(this.props,'props');
+    // console.log(this.props,'props');
     var self=this;
+    // this.props
     $.ajax({
       method: 'GET',
       url: '/match',
@@ -22,7 +24,7 @@ var Match = React.createClass({
   },
 
   render:function(){
-    var data=[(<div><Loading /></div>)];
+    var data=[];
     if(this.props.matchData!==null){
       // console.log('if statement fires');
       // console.log(this.props.matchData.array,'matchData');

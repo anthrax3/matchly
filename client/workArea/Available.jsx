@@ -169,7 +169,6 @@ var Available=React.createClass({
                 </div>
               <br></br>
               <tr>
-<<<<<<< HEAD
                 <h3 className='row-title sections'>8:00 AM</h3>
                 <input type='text' className='A1 sections' required defaultValue={this.props.availableData.A1.availableSpots} ></input>
                 <input type='text' className='B1 sections' required defaultValue={this.props.availableData.B1.availableSpots} ></input>
