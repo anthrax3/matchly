@@ -1,3 +1,5 @@
+//THIS IS NOT USED
+
 var Rumble = {
 
   scoreCalc: function(visitor, host) {
