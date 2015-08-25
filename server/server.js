@@ -8,8 +8,22 @@ var mongoose = require('mongoose');
 var connect=false;
 mongoose.connect('mongodb://travis:abc123@ds041188.mongolab.com:41188/finalproject');
 mongoose.connection.on('error', function(err){
-  console.error(err);
+  
+  console.error('connection error ',err);
   // throw err;
+});
+mongoose.connection.on('connected', function(){
+  connect=true;
+});
+mongoose.connection.on('disconnected', function(){
+  connect=false;
+});
+
+app.use(function(req,res,next) {
+  if(!connect) {
+    return next("mongolab is down...");
+  }
+  next();
 });
 
 app.use(cookieParser());
@@ -37,7 +51,7 @@ app.get('/match', userController.rumble);
 app.get('/getAvailableData',userController.getAvailableData);
 
 app.use(function(err, req, res, next){
-  console.error(err);
+  console.error('route error', err);
   next();
 });
 app.listen(process.env.PORT || 3000);
