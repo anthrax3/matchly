@@ -88,7 +88,7 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
 	color: #F5CB5C;
 }
 /*Buttons within app*/
-#matchButton, #exportButton, #submitButton, #txtFileUpload, #updateButton {
+#matchButton, #exportButton, #submitButton, #txtFileUpload, #updateButton, #confirm-button {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 200;
@@ -97,6 +97,9 @@ html, body, h1, h2, h3, h4, p, div, ul, li, a {
   border-radius: 4px;
 	display: block;
 	margin: 10px auto 10px auto;
+}
+#uploadForm #submitbutton, #uploadForm #confirm-button {
+	
 }
 /*Buttons before login*/
 #submitRegister, #loginButtons #submit, #loginButtons #register {

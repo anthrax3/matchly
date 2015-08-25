@@ -14,8 +14,11 @@ var Upload=React.createClass({
     };
   },
 
+
+
   componentDidMount: function(){
     document.getElementById("submitButton").disabled = true;
+    document.getElementById("confirm-button").disabled = true;
   },
 
   populateIndividualArray:function(array) {
@@ -49,6 +52,7 @@ var Upload=React.createClass({
       reader.addEventListener('load', function(event) {
         var data = Papa.parse(event.target.result, {header:true});
         console.log(data, 'data');
+        document.getElementById("confirm-button").disabled = false;
         // self.setState({data: data});
         if(self.state.hostOrVisitor==='visitor') {
           //figure out what to do with returned data
@@ -131,10 +135,10 @@ browserSupportFileUpload: function() {
             <input id='submitButton' type='submit'></input>
           </form>
           </div>
+            <input id='confirm-button' type='button' value="Confirm Data" onClick={this.submitData}></input>
           <div id="array-of-individuals">
             {this.populateIndividualArray(this.state.dataArray)}
           </div>
-          <input id='confirm button' type='button' onClick={this.submitData}>Confirm Data</input>
       </div>
     );
   }
