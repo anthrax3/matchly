@@ -1,6 +1,5 @@
-# Issues For Front End
+# Front End Issues
 
-- [ ] Fix "Confirm Data" button on the bottom of the upload page
 - [ ] Format Visitor Data (visitor.jsx from Match.jsx)
     - look up react inline styles
 - [ ] Format loaded data on upload page
@@ -11,9 +10,6 @@
     - css:enabled replace button content with gif & disabled (when data rendered) revert to original content
     - could i nest it inside the match component?
 - [ ] Favicon
-
-# Issues Completed
-
 - [x] Available page needs reformatting (spacing)
 - [x] Style login page
 - [x] Style register page
@@ -21,3 +17,4 @@
     - Available
     - Password Inputs on Register? Login?
 - [x] Fix Register/Login page from index.html & login.html
+- [x] Fix "Confirm Data" button on the bottom of the upload page
