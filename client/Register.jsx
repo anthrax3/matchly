@@ -57,27 +57,27 @@ render: function(){
                   <h3>School Registration Code: <input id='schoolCode' type='text' required /></h3>
                 </tr>
                 <tr>
-                  <h3>First Name: <input id='firstName' type='text' /></h3>
+                  <h3>First Name: <input id='firstName' type='text' required /></h3>
                 </tr>
                 <tr>
-                  <h3>Last Name: <input id='lastName' type='text' /></h3>
+                  <h3>Last Name: <input id='lastName' type='text' required /></h3>
                 </tr>
                 <tr>
-                  <h3>Email Address: <input id='emailAddress' type='email'/></h3>
+                  <h3>Email Address: <input id='emailAddress' type='email' required /></h3>
                 </tr>
                 <tr>
-                  <h3>Username: <input id='username' type='text' /></h3>
+                  <h3>Username: <input id='username' type='text' required /></h3>
                 </tr>
                 <tr>
-                  <h3>Password: <input id='password' type='password' /></h3>
+                  <h3>Password: <input id='password' type='password' required /></h3>
                 </tr>
                 <tr>
-                  <h3>Confirm Password: <input id='confirmPassword' type='text' /></h3>
+                  <h3>Confirm Password: <input id='confirmPassword' type='password' required /></h3>
                 </tr>
               </table>
               <table>
                 <tr>
-                  <button id='submitRegister' type='submit' onClick={this.handleRegister}>Submit</button>
+                  <button id='submitRegister' type='submit' onClick={this.handleRegister}>Register</button>
                 </tr>
               </table>
           </div>
