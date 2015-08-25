@@ -1,12 +1,16 @@
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var Hat = require('hat');
-
 var app = express();
 var userController = require('./database/userController');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var connect=false;
 mongoose.connect('mongodb://travis:abc123@ds041188.mongolab.com:41188/finalproject');
+mongoose.connection.on('error', function(err){
+  console.error(err);
+  // throw err;
+});
 
 app.use(cookieParser());
 // app.use(function(req,res,next) {
@@ -32,4 +36,8 @@ app.post('/availability', userController.availability);
 app.get('/match', userController.rumble);
 app.get('/getAvailableData',userController.getAvailableData);
 
+app.use(function(err, req, res, next){
+  console.error(err);
+  next();
+});
 app.listen(process.env.PORT || 3000);
