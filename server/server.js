@@ -32,4 +32,8 @@ app.post('/availability', userController.availability);
 app.get('/match', userController.rumble);
 app.get('/getAvailableData',userController.getAvailableData);
 
+app.use(function(err, req, res, next){
+  console.log(err);
+  next();
+});
 app.listen(process.env.PORT || 3000);
