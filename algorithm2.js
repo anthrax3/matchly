@@ -4,43 +4,52 @@ var Rumble = {
   calculatematchScore: function(visitor, host) {
     // console.log(visitor);
     // console.log(host);
+    // Military
+    // Country
+    // Citizenship
+    // Gender
+    // Undergrad
+    // Employer/Industry
+    // City/State
+    // Career interest/future industry
+
     var score=0;
     // console.log(visitor.Characteristics['State'],'visitor State');
     // console.log(host.Characteristics['State'], 'host State');
     if(visitor.Characteristics['Gender'] === host.Characteristics['Gender']) {
         // console.log('Gender fires');
-        score++;
+        score=score+100000;
     }
     if(visitor.Characteristics['State'] === host.Characteristics['State']) {
         // console.log('State fires');
-        score++;
+        score=score+1;
     }
     if(visitor.Characteristics['City'] === host.Characteristics['City']) {
         // console.log('City fires');
-        score++;
+        score=score+10;
     }    
     if(visitor.Characteristics['Industry'] === host.Characteristics['Industry']) {
         // console.log('Industry fires');
-        score++;
+        score=score+100;
     }
     if(visitor.Characteristics['Employer'] === host.Characteristics['Employer']) {
         // console.log('Employer fires');
-        score++;
+        score=score+1000;
     }
     if(visitor.Characteristics['Undergrad'] === host.Characteristics['Undergrad']) {
         // console.log('Undergrad fires');
-        score++;
+        score=score+10000;
     }if(visitor.Characteristics['Citizenship'] === host.Characteristics['Citizenship']) {
         // console.log('Citizenship fires');
-        score++;
+        score=score+1000000;
     }
     if(visitor.Characteristics['Country'] === host.Characteristics['Country']) {
         // console.log('Country fires');
-        score++;
+        score=score+10000000;
     }
     if(visitor.Characteristics['Military'] === host.Characteristics['Military']) {
         // console.log('Military fires');
-        score++;
+        score=score+100000000;
     }
     // console.log(score, 'this is the score');
     // console.log('host',host.Characteristics,'visitor',visitor.Characteristics,'score',score);
@@ -117,8 +126,8 @@ var Rumble = {
   SortReturnObject: function(returnObject) {
     // console.log(returnObject,'returnObject');
     returnObject=returnObject.sort(function(a,b){
-      console.log(a.sectionTime,'a section time');
-      console.log(b.sectionTime,'b section time');
+      // console.log(a.sectionTime,'a section time');
+      // console.log(b.sectionTime,'b section time');
       return a.sectionTime-b.sectionTime;
     });
     return returnObject;
@@ -131,9 +140,9 @@ var Rumble = {
     for(var l=0;l<sections.length;l++) {
       for(var m=1;m<4;m++) {
         var section=sections[l]+m.toString();
-        console.log(originalCapacity);
+        // console.log(originalCapacity);
         var numberOfVisitors=originalCapacity[l][0] - constraintObject[section].availableSpots;
-        console.log(numberOfVisitors);
+        // console.log(numberOfVisitors);
         classVisitorNumbers.push(numberOfVisitors);
         //need to know how many stdudent we could have had
       }
@@ -379,6 +388,7 @@ var Rumble = {
     var sectionReport=this.SectionReport(constraintObject,originalCapacity);
    //add section report and make it work
    //also fix the sort function!!!!
+   console.log('visitorHostParings',visitorHostParings);
     return visitorHostParings;
   }//close rumble
 };
