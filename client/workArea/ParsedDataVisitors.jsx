@@ -4,6 +4,7 @@ var ParsedDataVisitors=React.createClass({
   render:function(){
     return(
       <div>
+        <h2 className="visitor">Visitor</h2>
         <h3 className="visitor">Contact Information</h3>
         <h3 className="visitor">First: {this.props.data.Contact.First}</h3>
         <h3 className="visitor">Last: {this.props.data.Contact.Last}</h3>

@@ -5,6 +5,7 @@ var ParsedDataHosts=React.createClass({
     console.log(this.props.data);
     return(
       <div>
+        <h2 className='host'>Host</h2>
         <h3 className='host'>First: {this.props.data.Contact.First}</h3>
         <h3 className='host'>Last: {this.props.data.Contact.Last}</h3>
         <h3 className='host'>Email: {this.props.data.Contact.Email}</h3>
