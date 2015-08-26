@@ -64,14 +64,14 @@ parseDataHost: function(dataObject){
       } else {
         object.Characteristics.Gender='Male';
       }
-      if(object.Characteristics.Military[0]==='None') {
-        object.Characteristics.Military[1]=0;
-      } 
-      for(var key in object) {
-        if(object[key][0]==="") {
-          object[key][1]=0;
-        }
-      }
+      // if(object.Characteristics.Military==='None') {
+      //   object.Characteristics.Military=0;
+      // } 
+      // for(var key in object) {
+      //   if(object[key][0]==="") {
+      //     object[key][1]=0;
+      //   }
+      // }
     });
     console.log('modifiedDataArray', modifiedDataArray);
     return modifiedDataArray;
