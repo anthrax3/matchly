@@ -46,7 +46,7 @@ parseDataHost: function(dataObject){
         dataArray[i]['Citizenship'],
         dataArray[i]['School UG Name'],
         dataArray[i]['Employer'],
-        dataArray[i]['Job Title'],
+        dataArray[i]['Employment Industry'],
         dataArray[i]['City'],
         dataArray[i]['State'],
         dataArray[i]['Preferred'],
