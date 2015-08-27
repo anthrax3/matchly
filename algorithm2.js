@@ -12,48 +12,82 @@ var Rumble = {
     // Employer/Industry
     // City/State
     // Career interest/future industry
-
+    var count=0;
     var score=0;
+    var matchedOn ={
+      Gender:false,
+      State:false,
+      City:false,
+      Industry:false,
+      Employer:false,
+      Undergrad:false,
+      Citizenship:false,
+      Country:false,
+      Military:false
+    };
     // console.log(visitor.Characteristics['State'],'visitor State');
     // console.log(host.Characteristics['State'], 'host State');
     if(visitor.Characteristics['Gender'] === host.Characteristics['Gender']) {
         // console.log('Gender fires');
         score=score+100000;
+        count++;
+        matchedOn.Gender=true;
     }
     if(visitor.Characteristics['State'] === host.Characteristics['State']) {
         // console.log('State fires');
         score=score+1;
+        count++;
+        matchedOn.State=true;
     }
     if(visitor.Characteristics['City'] === host.Characteristics['City']) {
         // console.log('City fires');
         score=score+10;
+        count++;
+        matchedOn.City=true;
     }    
     if(visitor.Characteristics['Industry'] === host.Characteristics['Industry']) {
         // console.log('Industry fires');
         score=score+100;
+        count++;
+        matchedOn.Industry=true;
     }
     if(visitor.Characteristics['Employer'] === host.Characteristics['Employer']) {
         // console.log('Employer fires');
         score=score+1000;
+        count++;
+        matchedOn.Employer=true;
     }
     if(visitor.Characteristics['Undergrad'] === host.Characteristics['Undergrad']) {
         // console.log('Undergrad fires');
         score=score+10000;
+        count++;
+        matchedOn.Undergrad=true;
     }if(visitor.Characteristics['Citizenship'] === host.Characteristics['Citizenship']) {
         // console.log('Citizenship fires');
         score=score+1000000;
+        count++;
+        matchedOn.Citizenship=true;
     }
     if(visitor.Characteristics['Country'] === host.Characteristics['Country']) {
         // console.log('Country fires');
         score=score+10000000;
+        count++;
+        matchedOn.Country=true;
     }
     if(visitor.Characteristics['Military'] === host.Characteristics['Military']) {
         // console.log('Military fires');
         score=score+100000000;
+        count++;
+        matchedOn.Military=true;
     }
     // console.log(score, 'this is the score');
     // console.log('host',host.Characteristics,'visitor',visitor.Characteristics,'score',score);
-    return score;
+    var returnObject={
+      score:score,
+      count:count,
+      matchedOn:matchedOn
+    };
+    return returnObject;
   },
 
   determineQuadrant: function(visitor,host,constraintObject) {
@@ -83,6 +117,8 @@ var Rumble = {
 
   },
   ClassAvailable:function(constraintObject, specificClass,score) {
+    // console.log('ClassAvailable', constraintObject);
+    // console.log(specificClass,'specificClass');
     // console.log('ClassAvailable',constraintObject[specificClass],score);
     if(constraintObject[specificClass].availableSpots>0 || score > constraintObject[specificClass].lowestScore ){
       return true;
@@ -92,7 +128,7 @@ var Rumble = {
 
 
   visitorHostParings: function(visitorArray,hostArray) {
-    function Match(visitorFirstName,visitorLastName, hostFirstName, hostLastName, hostEmail, section, visitTime, matchScore) {
+    function Match(visitorFirstName,visitorLastName, hostFirstName, hostLastName, hostEmail, section, visitTime, matchScore,matchCount,Citizenship,City,Employer,Gender,Industry,Military,State,Undergrad,Country) {
       this.visitorName=visitorFirstName+" "+visitorLastName;
       this.hostName=hostFirstName+" "+hostLastName;
       this.hostEmail=hostEmail;
@@ -100,14 +136,25 @@ var Rumble = {
       this.visitTime=visitTime;
       this.sectionTime=section+visitTime.toString();
       this.matchScore=matchScore;
+      this.matchCount=matchCount;
+      this.Citizenship=Citizenship;
+      this.City=City;
+      this.Employer=Employer;
+      this.Gender=Gender;
+      this.Industry=Industry;
+      this.Military=Military;
+      this.State=State;
+      this.Undergrad=Undergrad;
+      this.Country=Country;
     }
     var matches = visitorArray.map(function(visitor){
       var host=hostArray[visitor.MatchInfo.matchIndex];
-      var m = new Match(visitor.Contact.First,visitor.Contact.Last,host.Contact.First,host.Contact.Last,host.Contact.Email,host.MatchInfo.Section,visitor.MatchInfo.classVisitTime,visitor.MatchInfo.matchScore);
+      // console.log(visitor, 'visitor');
+      var m = new Match(visitor.Contact.First,visitor.Contact.Last,host.Contact.First,host.Contact.Last,host.Contact.Email,host.MatchInfo.Section,visitor.MatchInfo.classVisitTime,visitor.MatchInfo.matchScore,visitor.MatchInfo.matchCount,visitor.MatchInfo.matchedOn.Citizenship,visitor.MatchInfo.matchedOn.City,visitor.MatchInfo.matchedOn.Employer,visitor.MatchInfo.matchedOn.Gender,visitor.MatchInfo.matchedOn.Industry,visitor.MatchInfo.matchedOn.Military,visitor.MatchInfo.matchedOn.State,visitor.MatchInfo.matchedOn.Undergrad,visitor.MatchInfo.matchedOn.Country);
       return m;
     });
 
-    matches.unshift(new Match('Visitor ', '','Host ','','Host Email', 'Section','Lecture','Match Score'));
+    matches.unshift(new Match('Visitor ', '','Host ','','Host Email', 'Section','Lecture','Match Score','matchCount','Citizenship','city','Employer','Gender','Industry','Military','State','Undergrad','Country'));
     
     return matches;
   },
@@ -162,7 +209,10 @@ var Rumble = {
     // console.log(originalCapacity,'originalCapacity');
 
     while(bool) {
-      
+      var bestmatchScore=-1;
+      var bestMatchIndex;
+      var bestCount;
+      var bestMatchedOn;
       whileCount++;
       // console.log('whileCount ', whileCount);
       bool=false;
@@ -194,11 +244,18 @@ var Rumble = {
       // console.log('unmatched ', unmatched, ' availableSpots ',availableSpots);
         if(visitorArray[i].MatchInfo.matchIndex === null) {
           bool = true;
-          var bestmatchScore=-1;
-          var bestMatchIndex;
+          bestmatchScore=-1;
+          bestMatchIndex=null;
+          bestCount=null;
+          bestMatchedOn=null;
           var classNumber=visitorArray[i].MatchInfo.classVisitTime;
           for(var k =0; k<hostArray.length; k++) {
-            var currentScore=this.calculatematchScore(visitorArray[i],hostArray[k]);
+            var currentMatchObject=this.calculatematchScore(visitorArray[i],hostArray[k]);
+            // console.log(currentMatchObject,'currentMatchObject');
+            var currentScore=currentMatchObject.score;
+            var currentCount=currentMatchObject.count;
+            var currentMatchedOn=currentMatchObject.matchedOn;
+            // console.log(currentMatchedOn,'matchedon');
             // console.log(currentScore,'currentScore');
             var hostCurrentScore=hostArray[k].MatchInfo;
             //constraint determining if visitor choose current host as best match
@@ -208,12 +265,16 @@ var Rumble = {
               var hostCurrentmatchScore=hostArray[k].MatchInfo[classNumber].matchScore;
               
               var hostClass=this.SpecificClass(visitorArray[i],hostArray[k]);
+              // console.log(hostClass,'hostClass');
               var classAvailable=this.ClassAvailable(constraintObject,hostClass,currentScore);
               // console.log('visitor', i,'host',k,'host existing score',hostCurrentmatchScore, 'currentScore',currentScore,'bestscore',bestmatchScore,'bestmatch', bestMatchIndex,classAvailable,'classAvailable');
 
             if (currentScore>bestmatchScore && currentScore>hostCurrentmatchScore &&  classAvailable===true) {
               bestmatchScore=currentScore;
               bestMatchIndex=k;
+              bestCount=currentCount;
+              bestMatchedOn=currentMatchedOn;
+              // console.log(bestMatchedOn,'bestMatchedOn populated');
             }//closes currentScore>bestmatchScore
           }//closes var j =0; j<hostArray.length; j++
           var visitor=visitorArray[i];
@@ -225,6 +286,7 @@ var Rumble = {
           var hostEmail=hostArray[bestMatchIndex].Contact.Email;
           var quadrant=this.determineQuadrant(visitor, host, constraintObject);
           // console.log(quadrant,"this is the quadrant");
+          console.log(bestMatchedOn,'before swithc');
           switch (quadrant) {
             case "matchedFull":
             // console.log('matchedFull fires', 'host',bestMatchIndex,'visitor',i);
@@ -232,11 +294,19 @@ var Rumble = {
               var originalMatchIndex=hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex;
               // console.log(originalMatchIndex,'originalMatchIndex');
               //unmatch original Match
+              console.log(bestMatchedOn,'matchedfull');
               visitorArray[originalMatchIndex].MatchInfo.matchIndex=null;
               visitorArray[originalMatchIndex].MatchInfo.matchScore=-1;
               //assign host to new visitor
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
               visitorArray[i].MatchInfo.matchScore=bestmatchScore;
+              visitorArray[i].MatchInfo.matchCount=bestCount;
+              visitorArray[i].MatchInfo.matchedOn=bestMatchedOn;
+              console.log(bestMatchedOn,'matchinfoafter');
+
+
+              //matched on and match count
+
               //assign new visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
@@ -272,8 +342,14 @@ var Rumble = {
               visitorArray[originalMatchIndex].MatchInfo.matchIndex=null;
               visitorArray[originalMatchIndex].MatchInfo.matchScore=-1;
               //assign new visitor to host
+              // console.log(matchedOn,'matchedOn');
+              console.log(bestMatchedOn,'matchednofull best matched');
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
               visitorArray[i].MatchInfo.matchScore=bestmatchScore;
+              visitorArray[i].MatchInfo.matchCount=bestCount;
+              visitorArray[i].MatchInfo.matchedOn=bestMatchedOn;
+              console.log(visitorArray[i].MatchInfo,'matchednotfull');
+
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
@@ -316,8 +392,14 @@ var Rumble = {
               visitorArray[visitorIndex].MatchInfo.matchIndex=null;
               visitorArray[visitorIndex].MatchInfo.matchScore=-1;
               //assign host to visitor
+              // console.log(matchedOn,'matchedOn');
+              console.log(bestMatchedOn,'notMatchedFull');
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
               visitorArray[i].MatchInfo.matchScore=bestmatchScore;
+              visitorArray[i].MatchInfo.matchCount=bestCount;
+              visitorArray[i].MatchInfo.matchedOn=bestMatchedOn;
+              console.log(visitorArray[i].MatchInfo,'matchinfoafter');
+
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
@@ -347,8 +429,16 @@ var Rumble = {
             case "notMatchedNotFull":
               // console.log("notMatchedNotFull fires",'host',bestMatchIndex,'visitor',i);
               //assign host to visitor
+              // console.log(matchedOn,'matchedOn');
+              console.log(bestMatchedOn,'notMatchedNotFull');
+              var test=clone(bestMatchedOn);
+              console.log('test',test);
               visitorArray[i].MatchInfo.matchIndex=bestMatchIndex;
               visitorArray[i].MatchInfo.matchScore=bestmatchScore;
+              visitorArray[i].MatchInfo.matchCount=bestCount;
+              visitorArray[i].MatchInfo.matchedOn=test;
+              console.log(visitorArray[i].MatchInfo,'matchinfoafter');
+
               //assign visitor to host
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchIndex=i;
               hostArray[bestMatchIndex].MatchInfo[classNumber].matchScore=bestmatchScore;
