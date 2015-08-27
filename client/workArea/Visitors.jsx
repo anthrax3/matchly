@@ -3,7 +3,7 @@ var React=require('react');
 
 var Visitor=React.createClass({
   render:function(){
-  // console.log(this.props.visitor,'visitor');
+  console.log(this.props.visitor,'visitor');
     return(
       <div className='tableDive'>
         <div id="dataTable">

@@ -21,7 +21,9 @@ var visitorSchema = new Schema({
     MatchInfo: {
         classVisitTime: {type: Number},
         matchScore: {type: Number},
-        matchIndex: {type: String}        
+        matchIndex: {type: String},
+        matchedOn: {type: Object},
+        matchCount: {type: Number}
     }
   });
 

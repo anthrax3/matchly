@@ -41,15 +41,15 @@ parseDataHost: function(dataObject){
 
     for(var i=0; i<dataArray.length; i++) {
       var data = new individual(
-        dataArray[i]['Veteran_Status'],
+        dataArray[i]['Veteran'],
         dataArray[i]['Country'],
-        dataArray[i]['Citizenship1'],
-        dataArray[i]['University2'],
-        dataArray[i]['Employer2'],
-        dataArray[i]['Job 1 Industry'],
+        dataArray[i]['Citizenship'],
+        dataArray[i]['School UG Name'],
+        dataArray[i]['Employer'],
+        dataArray[i]['Job Title'],
         dataArray[i]['City'],
-        dataArray[i]['Region'],
-        dataArray[i]['First'],
+        dataArray[i]['State'],
+        dataArray[i]['Preferred'],
         dataArray[i]['Last'],
         dataArray[i]['Sex'],
         dataArray[i]['Email'],
@@ -64,14 +64,14 @@ parseDataHost: function(dataObject){
       } else {
         object.Characteristics.Gender='Male';
       }
-      if(object.Characteristics.Military[0]==='None') {
-        object.Characteristics.Military[1]=0;
-      } 
-      for(var key in object) {
-        if(object[key][0]==="") {
-          object[key][1]=0;
-        }
-      }
+      // if(object.Characteristics.Military==='None') {
+      //   object.Characteristics.Military=0;
+      // } 
+      // for(var key in object) {
+      //   if(object[key][0]==="") {
+      //     object[key][1]=0;
+      //   }
+      // }
     });
     console.log('modifiedDataArray', modifiedDataArray);
     return modifiedDataArray;
@@ -87,11 +87,15 @@ parseDataHost: function(dataObject){
     var modifiedDataArray = [];
     // console.log(dataArray, 'dataArray');
     function individual(military, country, citizenship, undergrad, employer, industry, city, state, first, last, gender, email, ClassVisitTime) {
-      if(ClassVisitTime==='9:00 AM'){
+      console.log('classVisitTime', ClassVisitTime);
+      if(ClassVisitTime==='8:00 AM'){
+        console.log('8 am fires');
       ClassVisitTime=1;
-    } else if(ClassVisitTime ==='10:30 AM'){
+    } else if(ClassVisitTime ==='10:00 AM'){
+      console.log('10 am fires');
       ClassVisitTime=2;
     } else if(ClassVisitTime==='11:45 AM'){
+      console.log('11:45 fires');
       ClassVisitTime=3;
     } else {
       ClassVisitTime=3;
@@ -115,7 +119,9 @@ parseDataHost: function(dataObject){
       this.MatchInfo={
         classVisitTime: ClassVisitTime,
         matchScore:-1,
-        matchIndex:null
+        matchIndex:null,
+        matchedOn:null,
+        matchCount:0
       };
     }
     for(var i=0; i<dataArray.length; i++) {
