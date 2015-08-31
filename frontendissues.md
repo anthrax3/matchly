@@ -10,7 +10,6 @@
     - render gif if match button triggered & data not ready
     - css:enabled replace button content with gif & disabled (when data rendered) revert to original content
     - ~~could i nest it inside the match component? loading.jsx~~
-- [ ] Favicon
 - [x] Available page needs reformatting (spacing)
 - [x] Style login page
 - [x] Style register page
